@@ -1,0 +1,27 @@
+
+
+aside {
+	height: 100%;
+	max-width: 60px;
+	position: fixed;
+}
+nav { height: 100%; }
+
+body {
+	position: absolute;
+	top:0%; bottom: 0%;
+	left: 0%; right: 0%;
+}
+header { height: 20%; }
+main { height: 70%; }
+footer { height: 10%; }
+
+
+#default {
+	background-image: url('../img/5cfa8b20e6590ef8fa235170669f1767.jpg');
+}
+
+.row { 
+	position: relative;
+	height: 100%; 
+}
