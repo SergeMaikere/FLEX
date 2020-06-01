@@ -493,8 +493,140 @@ export class Constants {
 						from { opacity: 0; -webkit-transform: rotateX(90deg); transform: rotateX(90deg); }
 					}`,
 					exitName: 'rotatePushTop'
+				},
+				rotateUnfoldLeft: {
+					value: 'Rotate unfold left',
+					enter:`.rotateUnfoldLeft {
+						-webkit-transform-origin: 100% 50%;
+						transform-origin: 100% 50%;
+						-webkit-animation: rotateUnfoldLeft .7s both ease;
+						animation: rotateUnfoldLeft .7s both ease;
+					}
+					@-webkit-keyframes rotateUnfoldLeft {
+						from { opacity: 0; -webkit-transform: translateX(-100%) rotateY(-90deg); }
+					}
+					@keyframes rotateUnfoldLeft {
+						from { opacity: 0; -webkit-transform: translateX(-100%) rotateY(-90deg); transform: translateX(-100%) rotateY(-90deg); }
+					}`,
+					exitName: 'rotateFoldRight'
+				},
+				rotateUnfoldRight: {
+					value: 'Rotate unfold right',
+					enter:`.rotateUnfoldRight {
+						-webkit-transform-origin: 0% 50%;
+						transform-origin: 0% 50%;
+						-webkit-animation: rotateUnfoldRight .7s both ease;
+						animation: rotateUnfoldRight .7s both ease;
+					}
+					@-webkit-keyframes rotateUnfoldRight {
+						from { opacity: 0; -webkit-transform: translateX(100%) rotateY(90deg); }
+					}
+					@keyframes rotateUnfoldRight {
+						from { opacity: 0; -webkit-transform: translateX(100%) rotateY(90deg); transform: translateX(100%) rotateY(90deg); }
+					}`,
+					exitName: 'rotateFoldleft'
+				},
+				rotateUnfoldTop: {
+					value: 'Rotate unfold top',
+					enter:`.rotateUnfoldTop {
+						-webkit-transform-origin: 50% 100%;
+						transform-origin: 50% 100%;
+						-webkit-animation: rotateUnfoldTop .7s both ease;
+						animation: rotateUnfoldTop .7s both ease;
+					}
+					@-webkit-keyframes rotateUnfoldTop {
+						from { opacity: 0; -webkit-transform: translateY(-100%) rotateX(90deg); }
+					}
+					@keyframes rotateUnfoldTop {
+						from { opacity: 0; -webkit-transform: translateY(-100%) rotateX(90deg); transform: translateY(-100%) rotateX(90deg); }
+					}`,
+					exitName: 'rotateFoldBottom'
+				},
+				rotateUnfoldBottom: {
+					value: 'Rotate unfold bottom',
+					enter:`.rotateUnfoldBottom {
+						-webkit-transform-origin: 50% 0%;
+						transform-origin: 50% 0%;
+						-webkit-animation: rotateUnfoldBottom .7s both ease;
+						animation: rotateUnfoldBottom .7s both ease;
+					}
+					@-webkit-keyframes rotateUnfoldBottom {
+						from { opacity: 0; -webkit-transform: translateY(100%) rotateX(-90deg); }
+					}
+					@keyframes rotateUnfoldBottom {
+						from { opacity: 0; -webkit-transform: translateY(100%) rotateX(-90deg); transform: translateY(100%) rotateX(-90deg); }
+					}`,
+					exitName: 'rotateFoldTop'
+				},
+				rotateRoomLeftIn: {
+					value: 'Rotate room left in',
+					enter: `.rotateRoomLeftIn {
+						-webkit-transform-origin: 0% 50%;
+						transform-origin: 0% 50%;
+						-webkit-animation: rotateRoomLeftIn .8s both ease;
+						animation: rotateRoomLeftIn .8s both ease;
+					}
+					@-webkit-keyframes rotateRoomLeftIn {
+						from { opacity: .3; -webkit-transform: translateX(100%) rotateY(-90deg); }
+					}
+					@keyframes rotateRoomLeftIn {
+						from { opacity: .3; -webkit-transform: translateX(100%) rotateY(-90deg); transform: translateX(100%) rotateY(-90deg); }
+					}`,
+					exitName: 'rotateRoomLeftOut'
+				},
+				rotateRoomRightIn: {
+					value: 'Rotate room right in',
+					enter: `.rotateRoomRightIn {
+						-webkit-transform-origin: 100% 50%;
+						transform-origin: 100% 50%;
+						-webkit-animation: rotateRoomRightIn .8s both ease;
+						animation: rotateRoomRightIn .8s both ease;
+					}
+					@-webkit-keyframes rotateRoomRightIn {
+						from { opacity: .3; -webkit-transform: translateX(-100%) rotateY(90deg); }
+					}
+					@keyframes rotateRoomRightIn {
+						from { opacity: .3; -webkit-transform: translateX(-100%) rotateY(90deg); transform: translateX(-100%) rotateY(90deg); }
+					}`,
+					exitName: 'rotateRoomRightOut'
+				},
+				rotateRoomTopIn: {
+					value: 'Rotate room top in',
+					enter: `.rotateRoomTopIn {
+						-webkit-transform-origin: 50% 0%;
+						transform-origin: 50% 0%;
+						-webkit-animation: rotateRoomTopIn .8s both ease;
+						animation: rotateRoomTopIn .8s both ease;
+					}
+					@-webkit-keyframes rotateRoomTopIn {
+						from { opacity: .3; -webkit-transform: translateY(100%) rotateX(90deg); }
+					}
+					@keyframes rotateRoomTopIn {
+						from { opacity: .3; -webkit-transform: translateY(100%) rotateX(90deg); transform: translateY(100%) rotateX(90deg); }
+					}`,
+					exitName: 'rotateRoomTopOut'
+				},
+				rotateRoomBottomIn: {
+					value: 'Rotate room bottom in',
+					enter: `.rotateRoomBottomIn {
+						-webkit-transform-origin: 50% 100%;
+						transform-origin: 50% 100%;
+						-webkit-animation: rotateRoomBottomIn .8s both ease;
+						animation: rotateRoomBottomIn .8s both ease;
+					}
+					@-webkit-keyframes rotateRoomBottomIn {
+						from { opacity: .3; -webkit-transform: translateY(-100%) rotateX(-90deg); }
+					}
+					@keyframes rotateRoomBottomIn {
+						from { opacity: .3; -webkit-transform: translateY(-100%) rotateX(-90deg); transform: translateY(-100%) rotateX(-90deg); }
+					}`,
+					exitName: 'rotateRoomBottomOut'
 				}
 			},
+
+
+
+
 
 
 
@@ -941,6 +1073,150 @@ export class Constants {
 						to { opacity: 0; -webkit-transform: rotateX(90deg); transform: rotateX(90deg); }
 					}`,
 					exitName: 'rotateFromCenterPushBottom'
+				},
+				rotateFoldLeft: {
+					value: 'Rotate fold left',
+					enter: `.rotateFoldLeft {
+						-webkit-transform-origin: 100% 50%;
+						transform-origin: 100% 50%;
+						-webkit-animation: rotateFoldLeft .7s both ease;
+						animation: rotateFoldLeft .7s both ease;
+					}
+					@-webkit-keyframes rotateFoldLeft {
+						from { }
+						to { opacity: 0; -webkit-transform: translateX(-100%) rotateY(-90deg); }
+					}
+					@keyframes rotateFoldLeft {
+						from { }
+						to { opacity: 0; -webkit-transform: translateX(-100%) rotateY(-90deg); transform: translateX(-100%) rotateY(-90deg); }
+					}`,
+					exitName: 'rotateUnfoldLeft'
+				},
+				rotateFoldRight: {
+					value: 'Rotate fold Right',
+					enter: `.rotateFoldRight {
+						-webkit-transform-origin: 0% 50%;
+						transform-origin: 0% 50%;
+						-webkit-animation: rotateFoldRight .7s both ease;
+						animation: rotateFoldRight .7s both ease;
+					}
+					@-webkit-keyframes rotateFoldRight {
+						from { }
+						to { opacity: 0; -webkit-transform: translateX(100%) rotateY(90deg); }
+					}
+					@keyframes rotateFoldRight {
+						from { }
+						to { opacity: 0; -webkit-transform: translateX(100%) rotateY(90deg); transform: translateX(100%) rotateY(90deg); }
+					}`,
+					exitName: 'rotateUnfoldRight'
+				},
+				rotateFoldTop: {
+					value: 'Rotate fold top',
+					enter: `.rotateFoldTop {
+						-webkit-transform-origin: 50% 100%;
+						transform-origin: 50% 100%;
+						-webkit-animation: rotateFoldTop .7s both ease;
+						animation: rotateFoldTop .7s both ease;
+					}
+					@-webkit-keyframes rotateFoldTop {
+						from { }
+						to { opacity: 0; -webkit-transform: translateY(-100%) rotateX(90deg); }
+					}
+					@keyframes rotateFoldTop {
+						from { }
+						to { opacity: 0; -webkit-transform: translateY(-100%) rotateX(90deg); transform: translateY(-100%) rotateX(90deg); }
+					}`,
+					exitName: 'rotateUnfoldTop'
+				},
+				rotateFoldBottom: {
+					value: 'Rotate fold bottom',
+					enter: `.rotateFoldBottom {
+						-webkit-transform-origin: 50% 0%;
+						transform-origin: 50% 0%;
+						-webkit-animation: rotateFoldBottom .7s both ease;
+						animation: rotateFoldBottom .7s both ease;
+					}
+					@-webkit-keyframes rotateFoldBottom {
+						from { }
+						to { opacity: 0; -webkit-transform: translateY(100%) rotateX(-90deg); }
+					}
+					@keyframes rotateFoldBottom {
+						from { }
+						to { opacity: 0; -webkit-transform: translateY(100%) rotateX(-90deg); transform: translateY(100%) rotateX(-90deg); }
+					}`,
+					exitName: 'rotateUnfoldBottom'
+				},
+				rotateRoomLeftOut: {
+					value: 'Rotate room left out',
+					enter: `.rotateRoomLeftOut {
+						-webkit-transform-origin: 100% 50%;
+						transform-origin: 100% 50%;
+						-webkit-animation: rotateRoomLeftOut .8s both ease;
+						animation: rotateRoomLeftOut .8s both ease;
+					}
+					@-webkit-keyframes rotateRoomLeftOut {
+						from { }
+						to { opacity: .3; -webkit-transform: translateX(-100%) rotateY(90deg); }
+					}
+					@keyframes rotateRoomLeftOut {
+						from { }
+						to { opacity: .3; -webkit-transform: translateX(-100%) rotateY(90deg); transform: translateX(-100%) rotateY(90deg); }
+					}`,
+					exitName: 'rotateRoomLeftIn'
+				},
+				rotateRoomRightOut: {
+					value: 'Rotate room right out',
+					enter: `.rotateRoomRightOut {
+						-webkit-transform-origin: 0% 50%;
+						transform-origin: 0% 50%;
+						-webkit-animation: rotateRoomRightOut .8s both ease;
+						animation: rotateRoomRightOut .8s both ease;
+					}
+					@-webkit-keyframes rotateRoomRightOut {
+						from { }
+						to { opacity: .3; -webkit-transform: translateX(100%) rotateY(-90deg); }
+					}
+					@keyframes rotateRoomRightOut {
+						from { }
+						to { opacity: .3; -webkit-transform: translateX(100%) rotateY(-90deg); transform: translateX(100%) rotateY(-90deg); }
+					}`,
+					exitName: 'rotateRoomRightIn'
+				},
+				rotateRoomTopOut: {
+					value: 'Rotate room top out',
+					enter: `.rotateRoomTopOut {
+						-webkit-transform-origin: 50% 100%;
+						transform-origin: 50% 100%;
+						-webkit-animation: rotateRoomTopOut .8s both ease;
+						animation: rotateRoomTopOut .8s both ease;
+					}
+					@-webkit-keyframes rotateRoomTopOut {
+						from { }
+						to { opacity: .3; -webkit-transform: translateY(-100%) rotateX(-90deg); }
+					}
+					@keyframes rotateRoomTopOut {
+						from { }
+						to { opacity: .3; -webkit-transform: translateY(-100%) rotateX(-90deg); transform: translateY(-100%) rotateX(-90deg); }
+					}`,
+					exitName: 'rotateRoomTopIn'
+				},
+				rotateRoomBottomOut: {
+					value: 'Rotate room bottom out',
+					enter: `.rotateRoomBottomOut {
+						-webkit-transform-origin: 50% 0%;
+						transform-origin: 50% 0%;
+						-webkit-animation: rotateRoomBottomOut .8s both ease;
+						animation: rotateRoomBottomOut .8s both ease;
+					}
+					@-webkit-keyframes rotateRoomBottomOut {
+						from { }
+						to { opacity: .3; -webkit-transform: translateY(100%) rotateX(90deg); }
+					}
+					@keyframes rotateRoomBottomOut {
+						from { }
+						to { opacity: .3; -webkit-transform: translateY(100%) rotateX(90deg); transform: translateY(100%) rotateX(90deg); }
+					}`,
+					exitName: 'rotateRoomBottomIn'
 				}
 			}
 		}

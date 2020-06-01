@@ -63,11 +63,13 @@ export class GhostNav extends Navbar {
 				link.addEventListener(
 					'click',
 					e => {
-						if (this.helper.hasClass(document.getElementById(e.target.getAttribute('page')), 'star')) return;
+						const pageId = e.target.getAttribute('page');
+
+						if (this.helper.hasClass(document.getElementById(pageId), 'star')) return;
 
 						const transition = e.target.getAttribute('transition');
 						this.removeCurrentPage();
-						this.insertNewSelectedPage(transition, e.target.getAttribute('page'), 900)
+						this.insertNewSelectedPage(transition, pageId, 0)
 					}
 				)
 			}
