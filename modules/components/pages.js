@@ -45,7 +45,7 @@ export class Page extends HTMLElement {
 				position: absolute;
 				width: 100%;
 				background-color: ${this.constants.cssColors};
-				backface-visibility: hidden;
+				backface-visibility: hidden !important;
 				transform: translate3d(0, 0, 0);
 			}
 		</style>`;;

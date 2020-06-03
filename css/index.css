@@ -34,8 +34,9 @@ body {
 .transition-container { 
 	overflow: hidden !important;
 	position: relative;
-	perspective: 1200px;
-	transform-style: preserve-3d;
+	perspective: 1200px !important;
+	-webkit-transform-style:preserve-3d;
+	transform-style: preserve-3d !important;
 }
 
 .height-auto { height: auto !important; }

@@ -621,6 +621,176 @@ export class Constants {
 						from { opacity: .3; -webkit-transform: translateY(-100%) rotateX(-90deg); transform: translateY(-100%) rotateX(-90deg); }
 					}`,
 					exitName: 'rotateRoomBottomOut'
+				},
+				rotateCubeLeftIn: {
+					value: 'Rotate cube left in',
+					enter: `.rotateCubeLeftIn {
+						-webkit-transform-origin: 0% 50%;
+						transform-origin: 0% 50%;
+						-webkit-animation: rotateCubeLeftIn .6s both ease-in;
+						animation: rotateCubeLeftIn .6s both ease-in;
+					}
+					@-webkit-keyframes rotateCubeLeftIn {
+						0% { opacity: .3; -webkit-transform: translateX(100%) rotateY(90deg); }
+						50% { -webkit-animation-timing-function: ease-out;  -webkit-transform: translateX(50%) translateZ(-200px) rotateY(45deg); }
+					}
+					@keyframes rotateCubeLeftIn {
+						0% { opacity: .3; -webkit-transform: translateX(100%) rotateY(90deg); transform: translateX(100%) rotateY(90deg); }
+						50% { -webkit-animation-timing-function: ease-out; animation-timing-function: ease-out;  -webkit-transform: translateX(50%) translateZ(-200px) rotateY(45deg);  transform: translateX(50%) translateZ(-200px) rotateY(45deg); }
+					}`,
+					exitName: 'rotateCubeLeftOut'
+				},
+				rotateCubeRightIn: {
+					value: 'Rotate cube tight in',
+					enter: `.rotateCubeRightIn {
+						-webkit-transform-origin: 100% 50%;
+						transform-origin: 100% 50%;
+						-webkit-animation: rotateCubeRightIn .6s both ease-in;
+						animation: rotateCubeRightIn .6s both ease-in;
+					}
+					@-webkit-keyframes rotateCubeRightIn {
+						0% { opacity: .3; -webkit-transform: translateX(-100%) rotateY(-90deg); }
+						50% { -webkit-animation-timing-function: ease-out; -webkit-transform: translateX(-50%) translateZ(-200px) rotateY(-45deg); }
+					}
+					@keyframes rotateCubeRightIn {
+						0% { opacity: .3; -webkit-transform: translateX(-100%) rotateY(-90deg); transform: translateX(-100%) rotateY(-90deg); }
+						50% { -webkit-animation-timing-function: ease-out; animation-timing-function: ease-out; -webkit-transform: translateX(-50%) translateZ(-200px) rotateY(-45deg); transform: translateX(-50%) translateZ(-200px) rotateY(-45deg); }
+					}`,
+					exitName: 'rotateCubeRightOut'
+				},
+				rotateCubeTopIn: {
+					value: 'Rotate cube top in',
+					enter: `.rotateCubeTopIn {
+						-webkit-transform-origin: 50% 0%;
+						transform-origin: 50% 0%;
+						-webkit-animation: rotateCubeTopIn .6s both ease-in;
+						animation: rotateCubeTopIn .6s both ease-in;
+					}
+					@-webkit-keyframes rotateCubeTopIn {
+						0% { opacity: .3; -webkit-transform: translateY(100%) rotateX(-90deg); }
+						50% { -webkit-animation-timing-function: ease-out; -webkit-transform: translateY(50%) translateZ(-200px) rotateX(-45deg); }
+					}
+					@keyframes rotateCubeTopIn {
+						0% { opacity: .3; -webkit-transform: translateY(100%) rotateX(-90deg); transform: translateY(100%) rotateX(-90deg); }
+						50% { -webkit-animation-timing-function: ease-out; animation-timing-function: ease-out; -webkit-transform: translateY(50%) translateZ(-200px) rotateX(-45deg); transform: translateY(50%) translateZ(-200px) rotateX(-45deg); }
+					}`,
+					exitName: 'rotateCubeTopOut'
+				},
+				rotateCubeBottomIn: {
+					value: 'Rotate cube bottom in',
+					enter: `.rotateCubeBottomIn {
+						-webkit-transform-origin: 50% 100%;
+						transform-origin: 50% 100%;
+						-webkit-animation: rotateCubeBottomIn .6s both ease-in;
+						animation: rotateCubeBottomIn .6s both ease-in;
+					}
+					@-webkit-keyframes rotateCubeBottomIn {
+						0% { opacity: .3; -webkit-transform: translateY(-100%) rotateX(90deg); }
+						50% { -webkit-animation-timing-function: ease-out; -webkit-transform: translateY(-50%) translateZ(-200px) rotateX(45deg); }
+					}
+					@keyframes rotateCubeBottomIn {
+						0% { opacity: .3; -webkit-transform: translateY(-100%) rotateX(90deg); transform: translateY(-100%) rotateX(90deg); }
+						50% { -webkit-animation-timing-function: ease-out; animation-timing-function: ease-out; -webkit-transform: translateY(-50%) translateZ(-200px) rotateX(45deg); transform: translateY(-50%) translateZ(-200px) rotateX(45deg); }
+					}`,
+					exitName: 'rotateCubeBottomOut'
+				},
+				rotateCarouselLeftIn: {
+					value: 'Rotate carousel left in',
+					enter: `.rotateCarouselLeftIn {
+						-webkit-transform-origin: 0% 50%;
+						transform-origin: 0% 50%;
+						-webkit-animation: rotateCarouselLeftIn .8s both ease;
+						animation: rotateCarouselLeftIn .8s both ease;
+					}
+					@-webkit-keyframes rotateCarouselLeftIn {
+						from { opacity: .3; -webkit-transform: translateX(200%) scale(.4) rotateY(65deg); }
+					}
+					@keyframes rotateCarouselLeftIn {
+						from { opacity: .3; -webkit-transform: translateX(200%) scale(.4) rotateY(65deg); transform: translateX(200%) scale(.4) rotateY(65deg); }
+					}`,
+					exitName: 'rotateCarouselLeftOut'
+				},
+				rotateCarouselRightIn: {
+					value: 'Rotate carousel right in',
+					enter: `.rotateCarouselRightIn {
+						-webkit-transform-origin: 100% 50%;
+						transform-origin: 100% 50%;
+						-webkit-animation: rotateCarouselRightIn .8s both ease;
+						animation: rotateCarouselRightIn .8s both ease;
+					}
+					@-webkit-keyframes rotateCarouselRightIn {
+						from { opacity: .3; -webkit-transform: translateX(-200%) scale(.4) rotateY(-65deg); }
+					}
+					@keyframes rotateCarouselRightIn {
+						from { opacity: .3; -webkit-transform: translateX(-200%) scale(.4) rotateY(-65deg); transform: translateX(-200%) scale(.4) rotateY(-65deg); }
+					}`,
+					exitName: 'rotateCarouselRightOut'
+				},
+				rotateCarouselTopIn: {
+					value: 'Rotate carousel top in',
+					enter: `.rotateCarouselTopIn {
+						-webkit-transform-origin: 50% 0%;
+						transform-origin: 50% 0%;
+						-webkit-animation: rotateCarouselTopIn .8s both ease;
+						animation: rotateCarouselTopIn .8s both ease;
+					}
+					@-webkit-keyframes rotateCarouselTopIn {
+						from { opacity: .3; -webkit-transform: translateY(200%) scale(.4) rotateX(-65deg); }
+					}
+					@keyframes rotateCarouselTopIn {
+						from { opacity: .3; -webkit-transform: translateY(200%) scale(.4) rotateX(-65deg); transform: translateY(200%) scale(.4) rotateX(-65deg); }
+					}`,
+					exitName: 'rotateCarouselTopOut'
+				},
+				rotateCarouselBottomIn: {
+					value: 'Rotate carousel bottom in',
+					enter: `.rotateCarouselBottomIn {
+						-webkit-transform-origin: 50% 100%;
+						transform-origin: 50% 100%;
+						-webkit-animation: rotateCarouselBottomIn .8s both ease;
+						animation: rotateCarouselBottomIn .8s both ease;
+					}
+					@-webkit-keyframes rotateCarouselBottomIn {
+						from { opacity: .3; -webkit-transform: translateY(-200%) scale(.4) rotateX(65deg); }
+					}
+					@keyframes rotateCarouselBottomIn {
+						from { opacity: .3; -webkit-transform: translateY(-200%) scale(.4) rotateX(65deg); transform: translateY(-200%) scale(.4) rotateX(65deg); }
+					}`,
+					exitName: 'rotateCarouselBottomOut'
+				},
+				rotateSidesIn: {
+					value: 'Rotate sides in',
+					enter: `.rotateSidesIn {
+						-webkit-transform-origin: 150% 50%;
+						transform-origin: 150% 50%;
+						-webkit-animation: rotateSidesIn .5s both ease-out;
+						animation: rotateSidesIn .5s both ease-out;
+					}
+					@-webkit-keyframes rotateSidesIn {
+						from { opacity: 0; -webkit-transform: translateZ(-500px) rotateY(-90deg); }
+					}
+					@keyframes rotateSidesIn {
+						from { opacity: 0; -webkit-transform: translateZ(-500px) rotateY(-90deg); transform: translateZ(-500px) rotateY(-90deg); }
+					}`,
+					exitName: 'rotateSidesOut'
+				},
+				rotateSlideIn: {
+					value: 'Rotate slide in',
+					enter: `.rotateSlideIn {
+						-webkit-animation: rotateSlideIn 1s both ease;
+						animation: rotateSlideIn 1s both ease;
+					}
+					@-webkit-keyframes rotateSlideIn {
+						0%, 25% { opacity: .5; -webkit-transform: translateZ(-500px) translateX(200%); }
+						75% { opacity: .5; -webkit-transform: translateZ(-500px); }
+						100% { opacity: 1; -webkit-transform: translateZ(0) translateX(0); }
+					}
+					@keyframes rotateSlideIn {
+						0%, 25% { opacity: .5; -webkit-transform: translateZ(-500px) translateX(200%); transform: translateZ(-500px) translateX(200%); }
+						75% { opacity: .5; -webkit-transform: translateZ(-500px); transform: translateZ(-500px); }
+						100% { opacity: 1; -webkit-transform: translateZ(0) translateX(0); transform: translateZ(0) translateX(0); }
+					}`,
+					exitName: 'rotateSlideOut'
 				}
 			},
 
@@ -1217,6 +1387,196 @@ export class Constants {
 						to { opacity: .3; -webkit-transform: translateY(100%) rotateX(90deg); transform: translateY(100%) rotateX(90deg); }
 					}`,
 					exitName: 'rotateRoomBottomIn'
+				},
+				rotateCubeLeftOut: {
+					value: 'Rotate cube left out',
+					enter: `.rotateCubeLeftOut {
+						-webkit-transform-origin: 100% 50%;
+						transform-origin: 100% 50%;
+						-webkit-animation: rotateCubeLeftOut .6s both ease-in;
+						animation: rotateCubeLeftOut .6s both ease-in;
+					}
+					@-webkit-keyframes rotateCubeLeftOut {
+						0% { }
+						50% { -webkit-animation-timing-function: ease-out;  -webkit-transform: translateX(-50%) translateZ(-200px) rotateY(-45deg); }
+						100% { opacity: .3; -webkit-transform: translateX(-100%) rotateY(-90deg); }
+					}
+					@keyframes rotateCubeLeftOut {
+						0% { }
+						50% { -webkit-animation-timing-function: ease-out; animation-timing-function: ease-out;  -webkit-transform: translateX(-50%) translateZ(-200px) rotateY(-45deg);  transform: translateX(-50%) translateZ(-200px) rotateY(-45deg); }
+						100% { opacity: .3; -webkit-transform: translateX(-100%) rotateY(-90deg); transform: translateX(-100%) rotateY(-90deg); }
+					}`,
+					exitName: 'rotateCubeLeftIn'
+				},
+				rotateCubeRightOut: {
+					value: 'Rotate cube right out',
+					enter: `.rotateCubeRightOut {
+						-webkit-transform-origin: 0% 50%;
+						transform-origin: 0% 50%;
+						-webkit-animation: rotateCubeRightOut .6s both ease-in;
+						animation: rotateCubeRightOut .6s both ease-in;
+					}
+					@-webkit-keyframes rotateCubeRightOut {
+						0% { }
+						50% { -webkit-animation-timing-function: ease-out; -webkit-transform: translateX(50%) translateZ(-200px) rotateY(45deg); }
+						100% { opacity: .3; -webkit-transform: translateX(100%) rotateY(90deg); }
+					}
+					@keyframes rotateCubeRightOut {
+						0% { }
+						50% { -webkit-animation-timing-function: ease-out; animation-timing-function: ease-out; -webkit-transform: translateX(50%) translateZ(-200px) rotateY(45deg); transform: translateX(50%) translateZ(-200px) rotateY(45deg); }
+						100% { opacity: .3; -webkit-transform: translateX(100%) rotateY(90deg); transform: translateX(100%) rotateY(90deg); }
+					}`,
+					exitName: 'rotateCubeRightIn'
+				},
+				rotateCubeTopOut: {
+					value: 'Rotate cube top out',
+					enter: `.rotateCubeTopOut {
+						-webkit-transform-origin: 50% 100%;
+						transform-origin: 50% 100%;
+						-webkit-animation: rotateCubeTopOut .6s both ease-in;
+						animation: rotateCubeTopOut .6s both ease-in;
+					}
+					@-webkit-keyframes rotateCubeTopOut {
+						0% { }
+						50% { -webkit-animation-timing-function: ease-out; -webkit-transform: translateY(-50%) translateZ(-200px) rotateX(45deg); }
+						100% { opacity: .3; -webkit-transform: translateY(-100%) rotateX(90deg); }
+					}
+					@keyframes rotateCubeTopOut {
+						0% {}
+						50% { -webkit-animation-timing-function: ease-out; animation-timing-function: ease-out; -webkit-transform: translateY(-50%) translateZ(-200px) rotateX(45deg); transform: translateY(-50%) translateZ(-200px) rotateX(45deg); }
+						100% { opacity: .3; -webkit-transform: translateY(-100%) rotateX(90deg); transform: translateY(-100%) rotateX(90deg); }
+					}`,
+					exitName: 'rotateCubeTopIn'
+				},
+				rotateCubeBottomOut: {
+					value: 'Rotate cube bottom out',
+					enter: `.rotateCubeBottomOut {
+						-webkit-transform-origin: 50% 0%;
+						transform-origin: 50% 0%;
+						-webkit-animation: rotateCubeBottomOut .6s both ease-in;
+						animation: rotateCubeBottomOut .6s both ease-in;
+					}
+					@-webkit-keyframes rotateCubeBottomOut {
+						0% { }
+						50% { -webkit-animation-timing-function: ease-out; -webkit-transform: translateY(50%) translateZ(-200px) rotateX(-45deg); }
+						100% { opacity: .3; -webkit-transform: translateY(100%) rotateX(-90deg); }
+					}
+					@keyframes rotateCubeBottomOut {
+						0% { }
+						50% { -webkit-animation-timing-function: ease-out; animation-timing-function: ease-out; -webkit-transform: translateY(50%) translateZ(-200px) rotateX(-45deg); transform: translateY(50%) translateZ(-200px) rotateX(-45deg); }
+						100% { opacity: .3; -webkit-transform: translateY(100%) rotateX(-90deg); transform: translateY(100%) rotateX(-90deg); }
+					}`,
+					exitName: 'rotateCubeBottomIn'
+				},
+				rotateCarouselLeftOut: {
+					value: 'Rotate carousel left out',
+					enter: `.rotateCarouselLeftOut {
+						-webkit-transform-origin: 100% 50%;
+						transform-origin: 100% 50%;
+						-webkit-animation: rotateCarouselLeftOut .8s both ease;
+						animation: rotateCarouselLeftOut .8s both ease;
+					}
+					@-webkit-keyframes rotateCarouselLeftOut {
+						from { }
+						to { opacity: .3; -webkit-transform: translateX(-150%) scale(.4) rotateY(-65deg); }
+					}
+					@keyframes rotateCarouselLeftOut {
+						from { }
+						to { opacity: .3; -webkit-transform: translateX(-150%) scale(.4) rotateY(-65deg); transform: translateX(-150%) scale(.4) rotateY(-65deg); }
+					}`,
+					exitName: 'rotateCarouselLeftIn'
+				},
+				rotateCarouselRightOut: {
+					value: 'Rotate carousel right out',
+					enter: `.rotateCarouselRightOut {
+						-webkit-transform-origin: 100% 50%;
+						transform-origin: 100% 50%;
+						-webkit-animation: rotateCarouselRightOut .8s both ease;
+						animation: rotateCarouselRightOut .8s both ease;
+					}
+					@-webkit-keyframes rotateCarouselRightOut {
+						from { }
+						to { opacity: .3; -webkit-transform: translateX(200%) scale(.4) rotateY(65deg); }
+					}
+					@keyframes rotateCarouselRightOut {
+						from { }
+						to { opacity: .3; -webkit-transform: translateX(200%) scale(.4) rotateY(65deg); transform: translateX(200%) scale(.4) rotateY(65deg); }
+					}`,
+					exitName: 'rotateCarouselRightIn'
+				},
+				rotateCarouselTopOut: {
+					value: 'Rotate carousel top out',
+					enter: `.rotateCarouselTopOut {
+						-webkit-transform-origin: 50% 100%;
+						transform-origin: 50% 100%;
+						-webkit-animation: rotateCarouselTopOut .8s both ease;
+						animation: rotateCarouselTopOut .8s both ease;
+					}
+					@-webkit-keyframes rotateCarouselTopOut {
+						from { }
+						to { opacity: .3; -webkit-transform: translateY(-200%) scale(.4) rotateX(65deg); }
+					}
+					@keyframes rotateCarouselTopOut {
+						from { }
+						to { opacity: .3; -webkit-transform: translateY(-200%) scale(.4) rotateX(65deg); transform: translateY(-200%) scale(.4) rotateX(65deg); }
+					}`,
+					exitName: 'rotateCarouselTopIn'
+				},
+				rotateCarouselBottomOut: {
+					value: 'Rotate carousel bottom out',
+					enter: `.rotateCarouselBottomOut {
+						-webkit-transform-origin: 50% 0%;
+						transform-origin: 50% 0%;
+						-webkit-animation: rotateCarouselBottomOut .8s both ease;
+						animation: rotateCarouselBottomOut .8s both ease;
+					}
+					@-webkit-keyframes rotateCarouselBottomOut {
+						from { }
+						to { opacity: .3; -webkit-transform: translateY(200%) scale(.4) rotateX(-65deg); }
+					}
+					@keyframes rotateCarouselBottomOut {
+						from { }
+						to { opacity: .3; -webkit-transform: translateY(200%) scale(.4) rotateX(-65deg); transform: translateY(200%) scale(.4) rotateX(-65deg); }
+					}`,
+					exitName: 'rotateCarouselBottomIn'
+				},
+				rotateSidesOut: {
+					value: 'Rotate sides out',
+					enter: `.rotateSidesOut {
+						-webkit-transform-origin: -50% 50%;
+						transform-origin: -50% 50%;
+						-webkit-animation: rotateSidesOut .5s both ease-in;
+						animation: rotateSidesOut .5s both ease-in;
+					}
+					@-webkit-keyframes rotateSidesOut {
+						from { }
+						to { opacity: 0; -webkit-transform: translateZ(-500px) rotateY(90deg); }
+					}
+					@keyframes rotateSidesOut {
+						from { }
+						to { opacity: 0; -webkit-transform: translateZ(-500px) rotateY(90deg); transform: translateZ(-500px) rotateY(90deg); }
+					}`,
+					exitName: 'rotateSidesIn'
+				},
+				rotateSlideOut: {
+					value: 'Rotate slide Out',
+					enter: `.rotateSlideOut {
+						-webkit-animation: rotateSlideOut 1s both ease;
+						animation: rotateSlideOut 1s both ease;
+					}
+					@-webkit-keyframes rotateSlideOut {
+						0% { }
+						25% { opacity: .5; -webkit-transform: translateZ(-500px); }
+						75% { opacity: .5; -webkit-transform: translateZ(-500px) translateX(-200%); }
+						100% { opacity: .5; -webkit-transform: translateZ(-500px) translateX(-200%); }
+					}
+					@keyframes rotateSlideOut {
+						0% { }
+						25% { opacity: .5; -webkit-transform: translateZ(-500px); transform: translateZ(-500px); }
+						75% { opacity: .5; -webkit-transform: translateZ(-500px) translateX(-200%); transform: translateZ(-500px) translateX(-200%); }
+						100% { opacity: .5; -webkit-transform: translateZ(-500px) translateX(-200%); transform: translateZ(-500px) translateX(-200%); }
+					}`,
+					exitName: 'rotateSlideIn'
 				}
 			}
 		}
