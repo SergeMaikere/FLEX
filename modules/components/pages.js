@@ -20,6 +20,13 @@ export class Page extends HTMLElement {
 
 		this.events = [];
 
+		this.classes = [];
+
+		this.attributes = [ 	
+			{ name:'id', value: this._id } ,
+			{ name: 'transition', value: this.transition }
+		];
+
 	}
 
 	get _title () { return this.__title; }
@@ -31,8 +38,14 @@ export class Page extends HTMLElement {
 	get _id () { return this.__id; }
 	set _id (newValue) { this.__id = this.getAttribute('id') || newValue; }
 
+	get classes () { return this._classes }
+	set classes (newValue) { this._classes = newValue }
+
+	get attributes () { return this._attributes }
+	set attributes (newValue) { this._attributes = newValue }
+
 	setNewPage () {
-		return `<div id="new-${this._id}" class="row height-screen ${this.displayFirstPage()}">
+		return `<div id="new-${this._id}" class="row height-screen ${this.displayFirstPage()} transition-ready">
 			<div class="col-sm v-center">
 				<h2>${this._title}</h2>
 			</div>
@@ -40,15 +53,9 @@ export class Page extends HTMLElement {
 		<style>
 
 			${this.constants.getCssTransition(this.transition)}
+			#new-${this._id} { background-color: ${this.constants.cssColors}; }
 
-			#new-${this._id} { 
-				position: absolute;
-				width: 100%;
-				background-color: ${this.constants.cssColors};
-				backface-visibility: hidden !important;
-				transform: translate3d(0, 0, 0);
-			}
-		</style>`;;
+		</style>`;
 	}
 
 	static get observedAttributes () { return ['title', 'transition', 'id', 'count', 'links'] }
@@ -64,6 +71,8 @@ export class Page extends HTMLElement {
 
 
 	connectedCallback () {
+		this.helper.addAttributes(this, this.attributes);
+		this.helper.addClass(this, this.classes);
 		this.innerHTML = this.setNewPage();
 		this.setEventsListeners();
 	}

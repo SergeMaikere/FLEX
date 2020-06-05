@@ -1592,7 +1592,12 @@ export class Constants {
 
 	getCssTransition (transition) {
 		const transitionData = this.transitions.from[ transition ];
-		return transitionData.enter + this.transitions.to[ transitionData.exitName ].enter;
+		return this.setTranslation(transitionData.enter, '120') + this.setTranslation(this.transitions.to[ transitionData.exitName ].enter, '120');
+	}
+
+	setTranslation (str, value) {
+		return str.replace(/translateX\(100/g, `translateX(${value}`)
+		.replace(/translateX\(\-100/g, `translateX(-${value}`);
 	}
 
 	setDefaultEntrance (className) {

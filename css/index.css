@@ -14,6 +14,7 @@ body {
 
 .card { 
 	margin: 30px 5px;
+	padding: 30px;
 	background-color: whitesmoke;
 }
 
@@ -32,12 +33,24 @@ body {
 .hidden { display: none !important; }
 
 .transition-container { 
-	overflow: hidden !important;
+	height: 100vh; width: 100%;
+	overflow-x: hidden !important;
 	position: relative;
 	perspective: 1200px !important;
 	-webkit-transform-style:preserve-3d;
 	transform-style: preserve-3d !important;
 }
+
+.transition-ready {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	backface-visibility: hidden !important;
+	transform: translate3d(0, 0, 0);
+	overflow: visible !important;
+}
+
+.inner { position: relative !important; }
 
 .height-auto { height: auto !important; }
 

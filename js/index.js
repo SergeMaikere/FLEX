@@ -21,8 +21,8 @@ const pages = [
 	{ container: '#side', content: document.createElement('s-navbar')},
 	{ container: '#main', content: document.createElement('s-defaultpage')},
 	{ container: '#main', content: document.createElement('s-mainghostpage')},
-	{ container: '#main', content: document.createElement('s-achivementcalendar')},
-	{ container: '#main', content: document.createElement('s-footer') }
+	{ container: '#main', content: document.createElement('s-achivementcalendar')}
+	// { container: '#main', content: document.createElement('s-footer') }
 ]
 
 pages.forEach( page => document.querySelector(page.container).appendChild(page.content) )

@@ -14,6 +14,14 @@
 
 	hasClass (element, className) { return element.classList.contains(className) }
 
+	addAttributes (element, attributes) { 
+		attributes.forEach( 
+			attribute =>  {
+				if (!element.getAttribute(attribute.name)) element.setAttribute(attribute.name, attribute.value );
+			}
+		) 
+	}
+
 	pipe (array_of_f, x) {
 		return array_of_f.reduce( (acc, f) =>  f(acc), x )
 	}

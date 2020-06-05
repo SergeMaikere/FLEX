@@ -4,82 +4,86 @@ import {Constants} from '../services/constants.js'
 
 export class AchivementCalendar extends Page {
 	constructor () {
-		super('Great Achivement Calendar', 'none', 'monthlyAchivement', new Achivement())
+		super('Great Achivement Calendar', 'rotateSlideIn', 'monthlyAchivement', new Achivement())
 		
 		this.events = [
 			this.lightUp.bind(this),
 			this.onNextOrPreviousMonth.bind(this),
 			this.onMonthOrYearValueChange.bind(this)
 		];
+
+		this.classes = [ 'transition-ready', 'height-auto', this.constants.transitions.from[this.transition].exitName ];
 	}
 
+
 	setNewPage () {
-		return `<section id="${this._id}" class="card separator">
+		return `<section id="inner-${this._id}" class=" inner card height-screen">
 			<div class="card-title text-center">
 				<h1>${this._title}</h1>
 			</div>
-			<div class="row">
+			<div class="row" card-body>
 				<div class="col-sm-4">
-					<div class="card-body">${new Constants().text}</div>
+					${new Constants().text}
 				</div>
 				<div class="col-sm-8">
-					<div class="card-body">
-						<div class="row">
-							<div class="col-sm">
-								<div class="input-group mb-3">
-									<div class="input-group-prepend">
-										<span class="input-group-text" id="challenge-addon">Your incredible challenge</span>
-									</div>
-									<input type="text" class="form-control" id="challenge" aria-describedby="challenge-addon">
+					
+					<div class="row">
+						<div class="col-sm">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="challenge-addon">Your incredible challenge</span>
 								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm">
-								<table class="table table-bordered text-center">
-									<thead>
-										<tr>
-											${this.helper.getCalendarDays()}
-										</tr>
-									</thead>
-									<tbody id="monthlyCalendar">
-										${this.helper.fillMonthlyCalendar()}
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm v-center">
-								<div class="btn-group btn-group-lg" role="group">
-									<button type="button" id="previous" class="jump btn btn-dark">Previous</button>
-									<button type="button" id="next" class="jump btn btn-dark">Next</button>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm">
-								<div class="form-group">
-								    <label for="month">Select Month</label>
-								    <select class="form-control monthYearSelect" id="month">
-										${this.helper.getCalendarMonths()}
-								    </select>
-								</div>
-							</div>
-							<div class="col-sm">
-								<div class="form-group">
-								    <label for="year">Select Year</label>
-								    <select class="form-control monthYearSelect" id="year">
-										${this.helper.getCalendarYears()}
-								    </select>
-								</div>
+								<input type="text" class="form-control" id="challenge" aria-describedby="challenge-addon">
 							</div>
 						</div>
 					</div>
+					<div class="row">
+						<div class="col-sm">
+							<table class="table table-bordered text-center">
+								<thead>
+									<tr>
+										${this.helper.getCalendarDays()}
+									</tr>
+								</thead>
+								<tbody id="monthlyCalendar">
+									${this.helper.fillMonthlyCalendar()}
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm v-center">
+							<div class="btn-group btn-group-lg" role="group">
+								<button type="button" id="previous" class="jump btn btn-dark">Previous</button>
+								<button type="button" id="next" class="jump btn btn-dark">Next</button>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm">
+							<div class="form-group">
+							    <label for="month">Select Month</label>
+							    <select class="form-control monthYearSelect" id="month">
+									${this.helper.getCalendarMonths()}
+							    </select>
+							</div>
+						</div>
+						<div class="col-sm">
+							<div class="form-group">
+							    <label for="year">Select Year</label>
+							    <select class="form-control monthYearSelect" id="year">
+									${this.helper.getCalendarYears()}
+							    </select>
+							</div>
+						</div>
+					</div>
+					
 				</div>
 			</div>
 			
 		</section>
 		<style>
+			${this.constants.getCssTransition(this.transition)}
 			.dates { 
 				cursor: pointer;
 				background-color: #facf5a; 

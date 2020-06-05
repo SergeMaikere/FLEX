@@ -29,7 +29,7 @@ export class GhostNav extends Navbar {
 
 	setNewPage () {
 		return `<aside bg-secondary">
-			<div id="${this._id}">
+			<div id="inner-${this._id}">
 				<nav class="navbar navbar-light bg-fourly v-center height-screen">
 					${this.links}
 				</nav>

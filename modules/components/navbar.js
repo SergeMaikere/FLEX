@@ -7,7 +7,10 @@ export class Navbar extends Page {
 		super('My Beautiful navbar', 'none', id);
 
 		this.links = this.addDefaultLinks();
-		
+
+		this.events = [ this.onNavLinkSelected.bind(this) ];
+
+		this.classes = [ 'height-screen' ]
 	}
 
 	get links () { return this._links }
@@ -16,8 +19,8 @@ export class Navbar extends Page {
 		this._links =  arrObj.reduce(
 			(acc, obj) => {
 				return acc += 
-				`<a id="link-${obj.id}" class="navbar-brand" href="#${obj.anchor}">
-			    	<img src="${obj.imgSrc}" alt="${obj.imgAlt}">
+				`<a id="${obj.id}" class="navbar-brand official-icon" href="#">
+			    	<img src="${obj.imgSrc}" alt="${obj.imgAlt}" anchor="${obj.anchor}">
 				</a>`;
 			}, ''
 		)
@@ -31,7 +34,7 @@ export class Navbar extends Page {
 				id: 'link-home',
 				anchor: 'hall',
 				imgSrc: '../img/icons/icons8-home.svg',
-				imgAlt: 'Home icon'
+				imgAlt: 'Home icon',
 			},
 			{
 				id: 'link-mainGhostPage',
@@ -50,8 +53,8 @@ export class Navbar extends Page {
 
 	setNewPage () {
 		return `<aside bg-secondary">
-			<div id="${this._id}">
-				<nav class="navbar navbar-light v-center bg-fourly">
+			<div id="inner-${this._id}">
+				<nav class="navbar navbar-light v-center bg-fourly height-screen">
 					${this.links}
 				</nav>
 			</div>
@@ -62,8 +65,6 @@ export class Navbar extends Page {
 				position: fixed !important;
 				top: 0; bottom: 0; left: 0;
 			}
-
-			nav { height: 100%; }
 
 			.navbar-brand { margin: 3px 0;  }
 
@@ -81,5 +82,45 @@ export class Navbar extends Page {
 			  transform: rotate(15deg) scale(1.4);
 			}	
 		</style>`;
+	}
+
+	onNavLinkSelected () {
+		Array.from(document.querySelectorAll('.official-icon')).forEach(
+			link => {
+				link.addEventListener(
+					'click',
+					e => {
+						const pageId = e.target.getAttribute('anchor');
+
+						if (this.helper.hasClass(document.getElementById(pageId), 'star')) return;
+
+						const transition = this.getPageTransition(pageId);
+						this.removeCurrentPage();
+						this.insertNewSelectedPage(transition, pageId, 0)
+					}
+				)
+			}
+		)
+	}
+
+	getPageTransition (id) { return document.getElementById(id).getAttribute('transition') }
+
+	removeCurrentPage () {
+		let currentPage = document.querySelector('.star');
+		const transition = currentPage.getAttribute('transition');
+		this.helper.removeClass(currentPage, [ 'star', transition ]);
+		this.helper.addClass(currentPage, [this.constants.transitions.from[transition].exitName])
+	}
+
+	insertNewSelectedPage (transition, id, timeout) {
+
+		setTimeout(
+			() => {
+				let newPage = document.getElementById(id);
+				this.helper.removeClass(newPage, [this.constants.transitions.from[transition].exitName])
+				this.helper.addClass(newPage, ['star', transition])
+			},
+			timeout
+		)
 	}
 }

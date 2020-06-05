@@ -5,17 +5,19 @@ import {Constants} from '../services/constants.js';
 
 export class MainGhostPage extends Page {
 	constructor () {
-		super('Ghost page starter', 'none', 'mainGhostPage');
+		super('Ghost page starter', 'rotateSlideIn', 'mainGhostPage');
 
 		this.events = [
 			this.onNumberOfPagesSelected.bind(this),
 			this.onMiniFormsSubmit.bind(this)
 		];
 
+		this.classes = [ 'transition-ready', 'height-screen', this.constants.transitions.from[this.transition].exitName ];
+
 	}
 
 	setNewPage () {
-		return `<section id=${this._id} class="card height-auto separator">
+		return `<section id="inner-${this._id}" class="inner card height-screen">
 			<div class="card-title text-center">
 				<h1>${this._title}</h1>
 			</div>
@@ -33,7 +35,7 @@ export class MainGhostPage extends Page {
 						</form>
 					</div>
 					<div class="col-sm-4">
-						<div class="card-body">${this.constants.text}</div>
+						${this.constants.text}
 					</div>
 				</div>
 			</div>
@@ -44,7 +46,10 @@ export class MainGhostPage extends Page {
 			</div>
 			<div id="nav-container" class="col-sm-1">
 			</div>
-		</section>`;
+		</section>
+		<style>
+			${this.constants.getCssTransition(this.transition)}
+		</style>`;
 	}
 
 	// Insert the mini-form for pages on number of pages selected by the user
