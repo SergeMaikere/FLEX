@@ -7,11 +7,15 @@ export class MiniForm extends Page{
 		super('MiniForm', 'none');
 
 		this.count = this.getAttribute('count');
-		
+
+		this.attributes = [ { name: 'id', value: `page-${this.getAttribute('count')}` } ]		
 	}
 
+	get count () { return this._count }
+	set count (newValue) { this._count = newValue }
+
 	setNewPage () {
-		return `<div id="page-${this._count}" class="card mini-form">
+		return `<div class="card mini-form">
 			<div class="card-body">
 				<div class="form-group">
 					<label for="pageTitle-${this._count}">Title of page ${this._count}</label>

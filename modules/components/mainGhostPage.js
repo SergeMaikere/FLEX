@@ -54,7 +54,7 @@ export class MainGhostPage extends Page {
 
 	// Insert the mini-form for pages on number of pages selected by the user
 	onNumberOfPagesSelected () {
-		document.getElementById('numberOfPages').addEventListener(
+		this.shadowRoot.getElementById('numberOfPages').addEventListener(
 			'input', 
 			(e) => this.displayMiniPageForm(e.target.value)
 		);
@@ -63,9 +63,9 @@ export class MainGhostPage extends Page {
 	// Manage the displaying of the mini-page-forms
 	displayMiniPageForm (num) {
 		let count = 0
-		let miniFormContainer = document.getElementById('allMyPages');
-		let navContainer = document.getElementById('nav-container');
-		let pagesContainer = document.getElementById('ghostPages');
+		let miniFormContainer = this.shadowRoot.getElementById('allMyPages');
+		let navContainer = this.shadowRoot.getElementById('nav-container');
+		let pagesContainer = this.shadowRoot.getElementById('ghostPages');
 
 		this.helper.emptyContainers([miniFormContainer, navContainer]);
 		this.hidePagesContainer(pagesContainer);
@@ -80,7 +80,7 @@ export class MainGhostPage extends Page {
 
 	// Creates the pages
 	onMiniFormsSubmit () {
-		document.getElementById('submitPages').addEventListener('click', this.createGhostPages.bind(this));
+		this.shadowRoot.getElementById('submitPages').addEventListener('click', this.createGhostPages.bind(this));
 	}
 
 	createGhostPages () {
@@ -91,12 +91,12 @@ export class MainGhostPage extends Page {
 				this.setPages.bind(this),
 				this.setGhostNavbar.bind(this)
 			],
-			Array.from(document.querySelectorAll('.mini-form'))
+			Array.from(this.shadowRoot.querySelectorAll('s-miniform'))
 		)
 	}
 
 	isMissingTitle (nodeList) {
-		return nodeList.every( node => node.querySelector('input').value ) ? nodeList : { error: this.constants.MESSAGE.error }; 
+		return nodeList.every( node => node.shadowRoot.querySelector('input').value ) ? nodeList : { error: this.constants.MESSAGE.error }; 
 	}
 
 
@@ -104,9 +104,10 @@ export class MainGhostPage extends Page {
 		if (nodeList.error) return nodeList;
 		return nodeList.map(
 			miniForm => {
+				console.log(miniForm)
 				return { 
-					title: miniForm.querySelector('input').value, 
-					transition: miniForm.querySelector('select').value, 
+					title: miniForm.shadowRoot.querySelector('input').value, 
+					transition: miniForm.shadowRoot.querySelector('select').value, 
 					id: miniForm.id 
 				}
 			}
@@ -116,7 +117,7 @@ export class MainGhostPage extends Page {
 
 	setPages (arrObj) {
 		if (arrObj.error) return alert(arrObj.error);
-		let container = document.getElementById('ghostPages');
+		let container = this.shadowRoot.getElementById('ghostPages');
 		this.showPagesContainer(container)
 		arrObj.forEach( obj => container.appendChild(this.setPage(obj)))
 		return arrObj;
@@ -136,12 +137,12 @@ export class MainGhostPage extends Page {
 		if (arrObj.error) return alert(arrObj.error);
 		let ghostbar = document.createElement('s-ghostnav');
 		ghostbar.links = arrObj;
-		document.getElementById('nav-container').append(ghostbar);
+		this.shadowRoot.getElementById('nav-container').append(ghostbar);
 	}
 
 	showPagesContainer (pagesContainer) { 
 		if (!this.helper.hasClass(pagesContainer, 'height-screen')) this.helper.addClass(pagesContainer, ['height-screen']);
-		this.helper.emptyContainers([pagesContainer, document.getElementById('nav-container')])
+		this.helper.emptyContainers([pagesContainer, this.shadowRoot.getElementById('nav-container')])
 	}
 
 	hidePagesContainer (pagesContainer) {

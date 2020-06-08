@@ -85,7 +85,7 @@ export class Navbar extends Page {
 	}
 
 	onNavLinkSelected () {
-		Array.from(document.querySelectorAll('.official-icon')).forEach(
+		Array.from(this.shadowRoot.querySelectorAll('.official-icon')).forEach(
 			link => {
 				link.addEventListener(
 					'click',

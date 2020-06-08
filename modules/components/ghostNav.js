@@ -77,9 +77,9 @@ export class GhostNav extends Navbar {
 	}
 
 	removeCurrentPage () {
-		let currentPage = document.querySelector('.star');
+		let currentPage = document.querySelector('.vedette');
 		const transition = currentPage.parentNode.getAttribute('transition');
-		this.helper.removeClass(currentPage, [ 'star', transition ]);
+		this.helper.removeClass(currentPage, [ 'vedette', transition ]);
 		this.helper.addClass(currentPage, [this.constants.transitions.from[transition].exitName])
 	}
 
@@ -89,7 +89,7 @@ export class GhostNav extends Navbar {
 			() => {
 				let newPage = document.getElementById(id);
 				this.helper.removeClass(newPage, [this.constants.transitions.from[transition].exitName])
-				this.helper.addClass(newPage, ['star', transition])
+				this.helper.addClass(newPage, ['vedette', transition])
 			},
 			timeout
 		)

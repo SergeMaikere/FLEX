@@ -14,7 +14,7 @@
 
 	hasClass (element, className) { return element.classList.contains(className) }
 
-	addAttributes (element, attributes) { 
+	addAttribute (element, attributes) { 
 		attributes.forEach( 
 			attribute =>  {
 				if (!element.getAttribute(attribute.name)) element.setAttribute(attribute.name, attribute.value );

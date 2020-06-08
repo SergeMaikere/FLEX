@@ -98,7 +98,7 @@ export class AchivementCalendar extends Page {
 	}
 
 	lightUp () {	
-		Array.from(document.querySelectorAll('.dates')).forEach(
+		Array.from(this.shadowRoot.querySelectorAll('.dates')).forEach(
 			element => {
 				element.addEventListener('click', e => e.target.classList.toggle('bg-white'))
 			}
@@ -106,14 +106,14 @@ export class AchivementCalendar extends Page {
 	}
 
 	onNextOrPreviousMonth () {
-		Array.from(document.querySelectorAll('.jump')).forEach( 
+		Array.from(this.shadowRoot.querySelectorAll('.jump')).forEach( 
 			button => button.addEventListener( 'click', this.changeDate.bind(this))
 		)
 	}
 
 	changeDate (e) {
-		let monthInput = document.getElementById('month');
-		let yearInput = document.getElementById('year');
+		let monthInput = this.shadowRoot.getElementById('month');
+		let yearInput = this.shadowRoot.getElementById('year');
 
 		const newMonth = e.target.id == 'next' ? Number(monthInput.value) + 1 : Number(monthInput.value) - 1;
 		const newCalendar = this.setNewMonthNewYear(newMonth, Number(yearInput.value), e.target.id);
@@ -121,21 +121,21 @@ export class AchivementCalendar extends Page {
 		monthInput.value = newCalendar.month;
 		yearInput.value = newCalendar.year;
 		
-		document.getElementById('month').dispatchEvent(new Event('input'));
+		this.shadowRoot.getElementById('month').dispatchEvent(new Event('input'));
 	}
 
 	onMonthOrYearValueChange () {
-		Array.from(document.querySelectorAll('.monthYearSelect')).forEach(
+		Array.from(this.shadowRoot.querySelectorAll('.monthYearSelect')).forEach(
 			(select) => select.addEventListener( 'input', this.removeAndCreateCalendar.bind(this)) 
 		)
 	}
 
 	removeAndCreateCalendar (e) {
-		let monthInput = Number(document.getElementById('month').value);
-		let yearInput = Number(document.getElementById('year').value);
+		let monthInput = Number(this.shadowRoot.getElementById('month').value);
+		let yearInput = Number(this.shadowRoot.getElementById('year').value);
 
-		this.helper.emptyContainer(document.getElementById('monthlyCalendar'));
-		document.getElementById('monthlyCalendar').innerHTML = this.helper.fillMonthlyCalendar(monthInput, yearInput);
+		this.helper.emptyContainer(this.shadowRoot.getElementById('monthlyCalendar'));
+		this.shadowRoot.getElementById('monthlyCalendar').innerHTML = this.helper.fillMonthlyCalendar(monthInput, yearInput);
 		this.lightUp('dates');
 	}
 

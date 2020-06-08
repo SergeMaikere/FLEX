@@ -776,7 +776,7 @@ export class Constants {
 				},
 				rotateSlideIn: {
 					value: 'Rotate slide in',
-					enter: `.rotateSlideIn {
+					enter: `:host(.rotateSlideIn) {
 						-webkit-animation: rotateSlideIn 1s both ease;
 						animation: rotateSlideIn 1s both ease;
 					}
@@ -1560,7 +1560,7 @@ export class Constants {
 				},
 				rotateSlideOut: {
 					value: 'Rotate slide Out',
-					enter: `.rotateSlideOut {
+					enter: `:host(.rotateSlideOut) {
 						-webkit-animation: rotateSlideOut 1s both ease;
 						animation: rotateSlideOut 1s both ease;
 					}
