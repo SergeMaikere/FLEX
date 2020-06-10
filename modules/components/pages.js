@@ -45,17 +45,7 @@ export class Page extends HTMLElement {
 	set attributes (newValue) { this._attributes = newValue }
 
 	setNewPage () {
-		return `<div id="new-${this._id}" class="row height-screen ${this.displayFirstPage()} transition-ready">
-			<div class="col-sm v-center">
-				<h2>${this._title}</h2>
-			</div>
-		</div>
-		<style>
-
-			${this.constants.getCssTransition(this.transition)}
-			#new-${this._id} { background-color: ${this.constants.cssColors}; }
-
-		</style>`;
+		return `<div class="text-center"><h1></h1></div>`;
 	}
 
 	static get observedAttributes () { return ['title', 'transition', 'id', 'count', 'links'] }
@@ -64,9 +54,9 @@ export class Page extends HTMLElement {
 		if (name == 'title') this._title = newValue;
 		if (name == 'transition') this.transition = newValue;
 		if (name == 'id') this._id = newValue;
-		if (name == 'count') this._count = newValue;
-		if (name == 'links') this._links = newValue;
 
+		this.helper.addAttribute(this, this.attributes);
+		this.helper.addClass(this, this.classes);
 	}
 
 
@@ -82,10 +72,6 @@ export class Page extends HTMLElement {
 		this.events.forEach( event => event() )
 	}
 
-	displayFirstPage () { 
-		return this._id == 'page-1' ? 'vedette ' + this.transition : this.constants.transitions.from[this.transition].exitName 
-	}
-
 	setCssLinksForSadowDom () {
 		return `<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -95,7 +81,6 @@ export class Page extends HTMLElement {
 		<link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="../../css/index.css">`;
 	}
-
 }
 
 

@@ -3,13 +3,15 @@ import {Page} from './pages.js';
 
 export class MiniForm extends Page{
 
-	constructor(count) {
-		super('MiniForm', 'none');
+	constructor() {
+		super('MiniForm', 'none', 'test');
 
 		this.count = this.getAttribute('count');
 
-		this.attributes = [ { name: 'id', value: `page-${this.getAttribute('count')}` } ]		
 	}
+
+	get _id () { return this.__id }
+	set _id (newValue) { this.__id = this.id || newValue }
 
 	get count () { return this._count }
 	set count (newValue) { this._count = newValue }
@@ -18,9 +20,9 @@ export class MiniForm extends Page{
 		return `<div class="card mini-form">
 			<div class="card-body">
 				<div class="form-group">
-					<label for="pageTitle-${this._count}">Title of page ${this._count}</label>
-					<input type="text" class="form-control" id="pageTitle-${this._count}" aria-describedby="pageTitleHelp-${this._count}">
-					<small id="pageTitleHelp-${this._count}" class="form-text text-muted">Give a title to your page</small>
+					<label for="pageTitle-${this.count}">Title of page ${this.count}</label>
+					<input type="text" class="form-control" id="pageTitle-${this.count}" aria-describedby="pageTitleHelp-${this.count}">
+					<small id="pageTitleHelp-${this.count}" class="form-text text-muted">Give a title to your page</small>
 				</div>
 				<div class="form-group">
 					<label for="pageTransition">Page transition</label>
@@ -39,6 +41,10 @@ export class MiniForm extends Page{
 		</style>`;
 	}
 
+	static get observedAttributes () { return ['count'] }
+
+	attributeChangedCallback (name, oldValue, newValue) { if (name == 'count') this._count = newValue }
+
 	displayOptions () {
 		const transitions = this.constants.transitions.from;
 
@@ -46,4 +52,5 @@ export class MiniForm extends Page{
 			(acc, transition) => acc +=`<option value="${transition}">${transitions[transition].value}</option>`, ''
 		)
 	}
+
 }

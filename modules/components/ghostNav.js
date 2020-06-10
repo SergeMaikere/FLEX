@@ -17,7 +17,7 @@ export class GhostNav extends Navbar {
 			(acc, obj) => {
 				return acc += 
 				`<a id="link-${obj.id}" class="navbar-brand homemade-icon" href="#ghostPages">
-			    	<span class="badge bg-secondary" page="new-${obj.id}" transition="${obj.transition}">${this.setHomemadeIcon(obj.title)}</span>
+			    	<span class="badge bg-secondary" page="${obj.id}" transition="${obj.transition}">${this.setHomemadeIcon(obj.title)}</span>
 				</a>`;
 			}, ''
 		)
@@ -58,14 +58,14 @@ export class GhostNav extends Navbar {
 	}
 
 	onNavLinkSelected () {
-		Array.from(document.querySelectorAll('.homemade-icon')).forEach(
+		Array.from(this.shadowRoot.querySelectorAll('.homemade-icon')).forEach(
 			link => {
 				link.addEventListener(
 					'click',
 					e => {
 						const pageId = e.target.getAttribute('page');
 
-						if (this.helper.hasClass(document.getElementById(pageId), 'star')) return;
+						if (this.helper.hasClass(document.getElementById('mainGhostPage').shadowRoot.getElementById(pageId), 'star')) return;
 
 						const transition = e.target.getAttribute('transition');
 						this.removeCurrentPage();
@@ -77,7 +77,7 @@ export class GhostNav extends Navbar {
 	}
 
 	removeCurrentPage () {
-		let currentPage = document.querySelector('.vedette');
+		let currentPage = document.getElementById('mainGhostPage').shadowRoot.querySelector('.vedette');
 		const transition = currentPage.parentNode.getAttribute('transition');
 		this.helper.removeClass(currentPage, [ 'vedette', transition ]);
 		this.helper.addClass(currentPage, [this.constants.transitions.from[transition].exitName])
@@ -87,7 +87,7 @@ export class GhostNav extends Navbar {
 
 		setTimeout(
 			() => {
-				let newPage = document.getElementById(id);
+				let newPage = document.getElementById('mainGhostPage').shadowRoot.getElementById(id);
 				this.helper.removeClass(newPage, [this.constants.transitions.from[transition].exitName])
 				this.helper.addClass(newPage, ['vedette', transition])
 			},

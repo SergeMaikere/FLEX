@@ -74,6 +74,7 @@ export class MainGhostPage extends Page {
 			count++;
 			let miniform = document.createElement('s-miniform');
 			miniform.setAttribute('count', count);
+			miniform.id = 'page-' + count;
 			miniFormContainer.appendChild(miniform);
 		}
 	}
@@ -104,7 +105,6 @@ export class MainGhostPage extends Page {
 		if (nodeList.error) return nodeList;
 		return nodeList.map(
 			miniForm => {
-				console.log(miniForm)
 				return { 
 					title: miniForm.shadowRoot.querySelector('input').value, 
 					transition: miniForm.shadowRoot.querySelector('select').value, 
@@ -125,8 +125,7 @@ export class MainGhostPage extends Page {
 
 	setPage (obj) {
 		let page = document.createElement('s-ghostpage');
-
-		page.id = obj.id;
+		page.id = 'new-' + obj.id;
 		page.setAttribute('transition', obj.transition);
 		page.setAttribute('title', obj.title);
 

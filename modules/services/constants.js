@@ -161,6 +161,12 @@ export class Constants {
 		this.transitions = {
 
 			from: {
+
+				none: {
+					value: 'None',
+					enter: '',
+					exitName: 'none'
+				},
 				moveFromLeft: {
 					value: 'Move from left',
 					enter: `.moveFromLeft {
@@ -189,7 +195,6 @@ export class Constants {
 					}`,
 					exitName: 'moveToRight'
 				},
-
 				moveFromTop: {
 					value: 'Move from Top',
 					enter: `.moveFromTop {
@@ -802,6 +807,11 @@ export class Constants {
 
 
 			to: {
+				none: {
+					value: 'None',
+					enter: '',
+					exitName: 'none'
+				},
 				moveToLeft: {
 					value: 'Move to left',
 					enter: `.moveToLeft {

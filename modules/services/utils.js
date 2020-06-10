@@ -8,9 +8,21 @@
 
 	toggleClass (element, className) { element.classList.toggle(className) }
 
-	addClass (element, classNames) { classNames.forEach( className => element.classList.add(className)) }
+	addClass (element, classNames) { 
+		classNames.forEach( 
+			className => {
+				if (!this.hasClass(element, className)) element.classList.add(className)
+			}
+		) 
+	}
 	
-	removeClass (element, classNames) { classNames.forEach( className => element.classList.remove(className)) }
+	removeClass (element, classNames) { 
+		classNames.forEach( 
+			className => {
+				if (this.hasClass(element, className)) element.classList.remove(className)
+			}
+		) 
+	}
 
 	hasClass (element, className) { return element.classList.contains(className) }
 
