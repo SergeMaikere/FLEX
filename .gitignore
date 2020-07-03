@@ -1,0 +1,6 @@
+
+# Ignore node_module
+node_modules
+
+# Ignore index.htm while local libraries in use
+index.htm
