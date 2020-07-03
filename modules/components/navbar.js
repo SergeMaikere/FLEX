@@ -19,9 +19,12 @@ export class Navbar extends Page {
 		this._links =  arrObj.reduce(
 			(acc, obj) => {
 				return acc += 
-				`<a id="${obj.id}" class="navbar-brand official-icon" href="#">
-			    	<img src="${obj.imgSrc}" alt="${obj.imgAlt}" anchor="${obj.anchor}">
-				</a>`;
+				`
+				<div class="navbar-item">
+					<a id="${obj.id}" class="navbar-brand official-icon" href="#">
+				    	<img src="${obj.imgSrc}" alt="${obj.imgAlt}" anchor="${obj.anchor}">
+					</a>
+				</div>`;
 			}, ''
 		)
 	}
@@ -58,8 +61,8 @@ export class Navbar extends Page {
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
-					<div class="collapse navbar-collapse v-center" id="navbarTogglerDemo02">
-						${this.links}
+					<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+						<div class="navbar-nav v-center">${this.links}</div>
 					</div>
 				</nav>
 			</div>

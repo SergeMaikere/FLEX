@@ -21,7 +21,12 @@ export class MiniForm extends Page{
 			<div class="card-body">
 				<div class="form-group">
 					<label for="pageTitle-${this.count}">Title of page ${this.count}</label>
-					<input type="text" class="form-control" id="pageTitle-${this.count}" aria-describedby="pageTitleHelp-${this.count}">
+					<input 
+						type="text" 
+						class="form-control" 
+						id="pageTitle-${this.count}" 
+						aria-describedby="pageTitleHelp-${this.count}"
+						placeholder="Page ${this.count}">
 					<small id="pageTitleHelp-${this.count}" class="form-text text-muted">Give a title to your page</small>
 				</div>
 				<div class="form-group">
@@ -48,8 +53,13 @@ export class MiniForm extends Page{
 	displayOptions () {
 		const transitions = this.constants.transitions.from;
 
-		return Object.keys(transitions).reduce( 
-			(acc, transition) => acc +=`<option value="${transition}">${transitions[transition].value}</option>`, ''
+		const arrTransitions = Object.keys(transitions);
+		arrTransitions.shift();
+		
+		const randomTransition = this.helper.getRandom(arrTransitions);
+
+		return arrTransitions.reduce( 
+			(acc, transition) => acc +=`<option value="${transition}" ${ transition == randomTransition ? "selected" :  "" }>${transitions[transition].value}</option>`, ''
 		)
 	}
 

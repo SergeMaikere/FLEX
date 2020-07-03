@@ -38,4 +38,15 @@
 		return array_of_f.reduce( (acc, f) =>  f(acc), x )
 	}
 
+	getRandom (arr) { return arr[ Math.floor( Math.random() * arr.length ) ] }
+
+	isEquivalent (objA, objB) {
+		const objAProperties = Object.getOwnPropertyNames(objA);
+		const objBProperties = Object.getOwnPropertyNames(objB);
+
+		if (objAProperties.length !== objBProperties.length) return false;
+
+		return objAProperties.every( property => objA[property] === objB[property]);
+	}
+
 }

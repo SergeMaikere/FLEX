@@ -1,20 +1,33 @@
 import {Page} from './pages.js';
-import {Achivement} from '../services/achivement.js';
 import {Constants} from '../services/constants.js'
 
 export class AchivementCalendar extends Page {
 	constructor () {
-		super('Great Achivement Calendar', 'rotateSlideIn', 'monthlyAchivement', new Achivement())
+		super('Great Achivement Calendar', 'rotateSlideIn', 'monthlyAchivement')
 		
+		this.start = 2000;
+		this.end = 2050;
+
+		this.date = 1;
+
+		this.months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+		this.days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+		this.today = new Date();
+		this.currentMonth = this.today.getMonth();
+		this.currentYear = this.today.getFullYear();
+		this.starDates = JSON.parse(localStorage.getItem('starDates')) || { goal: "", dates: []};
+		this.proxyStarDates = new Proxy(this.starDates, this.updateLocalStorage())
+
 		this.events = [
-			this.lightUp.bind(this),
+			this.saveChallenge.bind(this),
+			this.onDateClick.bind(this),
 			this.onNextOrPreviousMonth.bind(this),
 			this.onMonthOrYearValueChange.bind(this)
 		];
 
 		this.classes = [ 'transition-ready', 'height-auto', this.constants.transitions.from[this.transition].exitName ];
 	}
-
 
 	setNewPage () {
 		return `<section id="inner-${this._id}" class=" inner card">
@@ -33,7 +46,10 @@ export class AchivementCalendar extends Page {
 								<div class="input-group-prepend">
 									<span class="input-group-text" id="challenge-addon">Your incredible challenge</span>
 								</div>
-								<input type="text" class="form-control" id="challenge" aria-describedby="challenge-addon">
+								<input type="text" class="form-control" id="challenge" aria-describedby="challenge-addon" value="${this.proxyStarDates.goal}">
+								<div class="input-group-append">
+									<button class="input-group-text btn btn-primary" id="save-challenge">Save</button>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -42,11 +58,11 @@ export class AchivementCalendar extends Page {
 							<table class="table table-bordered text-center">
 								<thead>
 									<tr>
-										${this.helper.getCalendarDays()}
+										${this.getCalendarDays()}
 									</tr>
 								</thead>
 								<tbody id="monthlyCalendar">
-									${this.helper.fillMonthlyCalendar()}
+									${this.fillMonthlyCalendar()}
 								</tbody>
 							</table>
 						</div>
@@ -64,7 +80,7 @@ export class AchivementCalendar extends Page {
 							<div class="form-group">
 							    <label for="month">Select Month</label>
 							    <select class="form-control monthYearSelect" id="month">
-									${this.helper.getCalendarMonths()}
+									${this.getCalendarMonths()}
 							    </select>
 							</div>
 						</div>
@@ -72,7 +88,7 @@ export class AchivementCalendar extends Page {
 							<div class="form-group">
 							    <label for="year">Select Year</label>
 							    <select class="form-control monthYearSelect" id="year">
-									${this.helper.getCalendarYears()}
+									${this.getCalendarYears()}
 							    </select>
 							</div>
 						</div>
@@ -97,12 +113,137 @@ export class AchivementCalendar extends Page {
 		</style>`;
 	}
 
-	lightUp () {	
-		Array.from(this.shadowRoot.querySelectorAll('.dates')).forEach(
-			element => {
-				element.addEventListener('click', e => e.target.classList.toggle('bg-white'))
+	// RENDERING
+
+	getCalendarDays () {
+		return this.days.reduce( (acc, day) => acc += `<th>${day}</th>`, "" );
+	}
+ 
+	getCalendarMonths () {
+		return this.months.reduce( 
+			(acc, month, i) => acc += `<option value="${i}" ${(i == this.currentMonth ? "selected" : "")}>${month}</option>`,
+			"" 
+		)
+	}
+
+	getCalendarYears () {
+		return [...Array(this.end - this.start + 1).keys()].reduce( 
+			(acc, i) => acc += `<option value="${this.start + i}" ${(this.start + i == this.currentYear ? "selected" : "")}>${this.start + i}</option>`,
+			"" 
+		)
+	}
+
+	firstDay (month, year) {
+		return (new Date(year, month)).getDay();
+	}
+
+	// From Itin Patel -> http://iamnitinpatel.com/projects/calendar/ Quite clever
+	daysInMonth (month, year) {
+		return 32 - new Date(year, month, 32).getDate();
+	}
+
+	fillMonthlyCalendar (month = this.currentMonth, year = this.currentYear) {
+		this.date = 1;
+		return [...Array(5).keys()].reduce(
+			(acc, row) => {
+				return acc += `<tr>${this.setCalendarDates(month, year, row)}</tr>`;
+				
+			}, ""
+		)
+	}
+
+	setCalendarDates (month, year, row) {
+		return this.days.reduce(
+			(acc, day, i) => {
+				const firstDay = this.firstDay(month, year);
+
+				if ((this.date < firstDay && i + 1 < firstDay && row == 0) || this.date > this.daysInMonth(month, year)) return acc += `<td class="bg-white"></td>`;
+
+				const cell = `<td class="dates ${this.setBgColor(year, month, this.date)}">${this.date}</td>`;
+				this.date++;
+				return acc += cell;
+			}, ""
+		)
+	}
+
+	setBgColor (year, month, day) {
+		const newDay = 
+		{ 
+			year: year.toString(), 
+			month: month.toString(), 
+			day: day.toString() 
+		}
+
+		return this.starDates.dates.some( date => this.helper.isEquivalent(date, newDay) ) ? '' : 'bg-white';
+	}
+
+	// EVENTS
+
+	saveChallenge () { 
+		this.shadowRoot.getElementById('save-challenge').addEventListener(
+			'click',
+			e => {
+				if (!this.shadowRoot.getElementById('challenge').value) return;
+				this.proxyStarDates.goal = this.shadowRoot.getElementById('challenge').value;
 			}
 		)
+	}
+
+	onDateClick () {	
+		Array.from(this.shadowRoot.querySelectorAll('.dates')).forEach(
+			element => {
+				element.addEventListener(
+					'click',
+					e => {
+						this.helper.pipe(
+							[ 
+								this.lightUp.bind(this), 
+								this.updateStarDate.bind(this),
+							],
+							e.target
+						)
+					}
+				)
+			}
+		)
+	}
+
+	lightUp (element) { 
+		this.helper.toggleClass(element, 'bg-white');
+		return element;
+	}
+
+	updateStarDate (element) {
+
+		this.proxyStarDates.dates = 
+		{
+			year: this.shadowRoot.getElementById('year').value,
+			month: this.shadowRoot.getElementById('month').value,
+			day: element.innerText,
+			action: this.helper.hasClass(element, 'bg-white') ? 'remove' : 'add'
+		}		
+	}
+
+	updateLocalStorage () {
+		return {
+			set: (target, property, value) => {
+
+				if (property == 'goal') target[property] = value;
+
+				if (property == 'dates' && value.action == 'add') {
+					delete value.action;
+					target[property].push(value);
+				}
+
+				if (property == 'dates' && value.action == 'remove') { 
+					delete value.action;
+					target[property] = target[property].filter( date => !this.helper.isEquivalent(date, value));
+				}
+
+				localStorage.starDates = JSON.stringify(target);
+				return true;
+			}
+		}
 	}
 
 	onNextOrPreviousMonth () {
@@ -135,8 +276,8 @@ export class AchivementCalendar extends Page {
 		let yearInput = Number(this.shadowRoot.getElementById('year').value);
 
 		this.helper.emptyContainers([this.shadowRoot.getElementById('monthlyCalendar')]);
-		this.shadowRoot.getElementById('monthlyCalendar').innerHTML = this.helper.fillMonthlyCalendar(monthInput, yearInput);
-		this.lightUp();
+		this.shadowRoot.getElementById('monthlyCalendar').innerHTML = this.fillMonthlyCalendar(monthInput, yearInput);
+		this.onDateClick();
 	}
 
 	setNewMonthNewYear (newMonth, year) {
