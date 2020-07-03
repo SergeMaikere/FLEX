@@ -35,8 +35,8 @@ body {
 .hidden { display: none !important; }
 
 .transition-container { 
-	height: 100vh; width: 100%;
-	overflow-x: hidden !important;
+	min-height: 100vh; width: 100%;
+	overflow: hidden !important;
 	position: relative;
 	perspective: 1200px !important;
 	-webkit-transform-style:preserve-3d;
@@ -49,7 +49,7 @@ body {
 	left: 0;
 	backface-visibility: hidden !important;
 	transform: translate3d(0, 0, 0);
-	overflow: visible !important;
+	overflow: scroll;
 }
 
 .inner { position: relative !important; }
