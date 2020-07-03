@@ -43,7 +43,7 @@ export class MainGhostPage extends Page {
 		</section>
 
 		<section class="row">
-			<div id="ghostPages" class="col-sm-11 transition-container">
+			<div id="ghostPages" class="col-sm-11">
 			</div>
 			<div id="nav-container" class="col-sm-1">
 			</div>
@@ -142,12 +142,12 @@ export class MainGhostPage extends Page {
 	}
 
 	showPagesContainer (pagesContainer) { 
-		if (!this.helper.hasClass(pagesContainer, 'height-screen')) this.helper.addClass(pagesContainer, ['height-screen']);
+		if (!this.helper.hasClass(pagesContainer, 'transition-container')) this.helper.addClass(pagesContainer, ['transition-container']);
 		this.helper.emptyContainers([pagesContainer, this.shadowRoot.getElementById('nav-container')])
 	}
 
 	hidePagesContainer (pagesContainer) {
-		if (this.helper.hasClass(pagesContainer, 'height-screen')) this.helper.removeClass(pagesContainer, ['height-screen']);
+		if (this.helper.hasClass(pagesContainer, 'transition-container')) this.helper.removeClass(pagesContainer, ['transition-container']);
 		this.helper.emptyContainers([pagesContainer])
 	} 
 
