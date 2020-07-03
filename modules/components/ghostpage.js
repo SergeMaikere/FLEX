@@ -3,9 +3,9 @@ import {Page} from './pages.js';
 export class GhostPage extends Page {
 
 	constructor () {
-		super('Ghost page', 'none', 'myId');
+		super('Ghost page', 'moveFromLeft', 'myId');
 
-		this.classes = [ 'transition-ready', this.displayFirstPage() ]
+		this.classes = [ 'transition-ready' ]
 	}
 
 	setNewPage () {
@@ -17,25 +17,18 @@ export class GhostPage extends Page {
 		<style>
 
 			${this.constants.getCssTransition(this.transition)}
-			#new-${this._id} { background-color: ${this.constants.cssColors}; }
+			#ghost-${this._id} { background-color: ${this.constants.cssColors}; }
 
 		</style>`;
 	}
 
-	static get observedAttributes () { return ['title', 'transition', 'id'] }
-
-	attributeChangedCallback (name, oldValue, newValue) {
-		if (name == 'title') this._title = newValue;
-		if (name == 'transition') this.transition = newValue;
-		if (name == 'id') this._id = newValue;
-
-		console.log(this.transition)
-		console.log(this._id)
+	setAppropriateTransition () {
+		const transition = this.getAttribute('transition') || this.transition;
+		return this.helper.hasClass(this, 'vedette') ? transition : this.constants.transitions.from[transition].exitName;
 	}
 
-	displayFirstPage () { 
-		console.log(this.transition)
-		console.log(this._id)
-		return this._id == 'new-page-1' ? 'vedette ' + this.transition : this.constants.transitions.from[this.transition].exitName 
+	transitionManager (oldValue, newValue) { 
+		this.transition = newValue;
+		this.helper.addClass(this, [ this.setAppropriateTransition() ])
 	}
 }

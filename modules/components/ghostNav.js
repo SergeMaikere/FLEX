@@ -63,9 +63,9 @@ export class GhostNav extends Navbar {
 				link.addEventListener(
 					'click',
 					e => {
-						const pageId = e.target.getAttribute('page');
+						const pageId = 'new-' + e.target.getAttribute('page');
 
-						if (this.helper.hasClass(document.getElementById('mainGhostPage').shadowRoot.getElementById(pageId), 'star')) return;
+						if (this.helper.hasClass(document.getElementById('mainGhostPage').shadowRoot.getElementById(pageId), 'vedette')) return;
 
 						const transition = e.target.getAttribute('transition');
 						this.removeCurrentPage();
@@ -78,7 +78,7 @@ export class GhostNav extends Navbar {
 
 	removeCurrentPage () {
 		let currentPage = document.getElementById('mainGhostPage').shadowRoot.querySelector('.vedette');
-		const transition = currentPage.parentNode.getAttribute('transition');
+		const transition = currentPage.getAttribute('transition');
 		this.helper.removeClass(currentPage, [ 'vedette', transition ]);
 		this.helper.addClass(currentPage, [this.constants.transitions.from[transition].exitName])
 	}

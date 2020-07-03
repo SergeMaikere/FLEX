@@ -52,19 +52,20 @@ export class Navbar extends Page {
 	}
 
 	setNewPage () {
-		return `<aside bg-secondary">
-			<div id="inner-${this._id}">
-				<nav class="navbar navbar-light v-center bg-fourly height-screen">
-					${this.links}
+		return `<aside class="height-inherit">
+			<div id="inner-${this._id}" class="height-inherit">
+				<nav class="navbar navbar-expand-md navbar-light bg-fourly height-inherit">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse v-center" id="navbarTogglerDemo02">
+						${this.links}
+					</div>
 				</nav>
 			</div>
 		</aside>
 		
 		<style>
-			#aside {
-				position: fixed !important;
-				top: 0; bottom: 0; left: 0;
-			}
 
 			.navbar-brand { margin: 3px 0;  }
 

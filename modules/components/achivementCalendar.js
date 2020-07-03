@@ -17,15 +17,15 @@ export class AchivementCalendar extends Page {
 
 
 	setNewPage () {
-		return `<section id="inner-${this._id}" class=" inner card height-screen">
+		return `<section id="inner-${this._id}" class=" inner card">
 			<div class="card-title text-center">
 				<h1>${this._title}</h1>
 			</div>
 			<div class="row" card-body>
-				<div class="col-sm-4">
+				<div class="col-md-4 v-pad">
 					${new Constants().text}
 				</div>
-				<div class="col-sm-8">
+				<div class="col-md-8 v-pad">
 					
 					<div class="row">
 						<div class="col-sm">
@@ -134,9 +134,9 @@ export class AchivementCalendar extends Page {
 		let monthInput = Number(this.shadowRoot.getElementById('month').value);
 		let yearInput = Number(this.shadowRoot.getElementById('year').value);
 
-		this.helper.emptyContainer(this.shadowRoot.getElementById('monthlyCalendar'));
+		this.helper.emptyContainers([this.shadowRoot.getElementById('monthlyCalendar')]);
 		this.shadowRoot.getElementById('monthlyCalendar').innerHTML = this.helper.fillMonthlyCalendar(monthInput, yearInput);
-		this.lightUp('dates');
+		this.lightUp();
 	}
 
 	setNewMonthNewYear (newMonth, year) {

@@ -4,6 +4,11 @@ export class Constants {
 			error: 'All pages must have a title'
 		}
 
+		this.cssLinks = `<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="../../css/index.css">`;
+
 		this.text = `Vous savez, moi, je ne crois pas qu’il y ait de bonne ou de mauvaise situation. Moi, si je devais résumer ma vie aujourd’hui avec vous, je dirais que c’est d’abord des rencontres. Des gens qui m’ont tendu la main, peut-être à un moment où je ne pouvais pas, où j’étais seul chez-moi. Et c’est assez curieux de se dire que les hasards, les rencontres forgent une destinée… Parce que quand on a le goût de la chose, quand on a le goût de la chose bien faite, le beau geste, parfois, on ne trouve pas l’interlocuteur en face, je dirais, le miroir qui vous aide à avancer. 
 		Alors ça n’est pas mon cas, comme je disais là, puisque moi au contraire, j’ai pu : et je dis merci à la vie, je lui dis merci, je chante la vie, je danse la vie… Je ne suis qu’amour ! Et finalement, quand beaucoup de gens, aujourd’hui, me disent « Mais comment fais-tu pour avoir cette humanité ? » , et bien je leur réponds très simplement, je leur dis que c’est ce goût de l’amour ce goût donc qui m’a poussé aujourd’hui à entreprendre une construction mécanique, mais demain qui sait ? Peut-être simplement à me mettre au service de la communauté, à faire le don, le don de soi… `;
 
@@ -169,7 +174,7 @@ export class Constants {
 				},
 				moveFromLeft: {
 					value: 'Move from left',
-					enter: `.moveFromLeft {
+					enter: `:host(.moveFromLeft) {
 						-webkit-animation: moveFromLeft .6s ease both;
 						animation: moveFromLeft .6s ease both;
 					}
@@ -183,7 +188,7 @@ export class Constants {
 				},
 				moveFromRight: {
 					value: 'Move from right',
-					enter: `.moveFromRight {
+					enter: `:host(.moveFromRight) {
 						-webkit-animation: moveFromRight .6s ease both;
 						animation: moveFromRight .6s ease both;
 					}
@@ -197,7 +202,7 @@ export class Constants {
 				},
 				moveFromTop: {
 					value: 'Move from Top',
-					enter: `.moveFromTop {
+					enter: `:host(.moveFromTop) {
 						-webkit-animation: moveFromTop .6s ease both;
 						animation: moveFromTop .6s ease both;
 					}
@@ -211,7 +216,7 @@ export class Constants {
 				},
 				moveFromBottom: {
 					value: 'Move from bottom',
-					enter: `.moveFromBottom {
+					enter: `:host(.moveFromBottom) {
 						-webkit-animation: moveFromBottom .6s ease both;
 						animation: moveFromBottom .6s ease both;
 					}
@@ -225,7 +230,7 @@ export class Constants {
 				},
 				moveFromLeftFade: {
 					value: 'Move from left fade',
-					enter: `.moveFromLeftFade {
+					enter: `:host(.moveFromLeftFade) {
 						-webkit-animation: moveFromLeftFade .7s ease both;
 						animation: moveFromLeftFade .7s ease both;
 					}
@@ -239,7 +244,7 @@ export class Constants {
 				},
 				moveFromRightFade: {
 					value: 'Move from right fade',
-					enter: `.moveFromRightFade {
+					enter: `:host(.moveFromRightFade) {
 						-webkit-animation: moveFromRightFade .7s ease both;
 						animation: moveFromRightFade .7s ease both;
 					}
@@ -253,7 +258,7 @@ export class Constants {
 				},
 				moveFromTopFade: {
 					value: 'Move from top fade',
-					enter: `.moveFromTopFade {
+					enter: `:host(.moveFromTopFade) {
 						-webkit-animation: moveFromTopFade .7s ease both;
 						animation: moveFromTopFade .7s ease both;
 					}
@@ -267,7 +272,7 @@ export class Constants {
 				},
 				moveFromBottomFade: {
 					value: 'Move from bottom fade',
-					enter: `.moveFromBottomFade {
+					enter: `:host(.moveFromBottomFade) {
 						-webkit-animation: moveFromBottomFade .7s ease both;
 						animation: moveFromBottomFade .7s ease both;
 					}
@@ -281,7 +286,7 @@ export class Constants {
 				},
 				scaleUp: {
 					value: 'Scale up',
-					enter: `.scaleUp {
+					enter: `:host(.scaleUp) {
 						-webkit-animation: scaleUp .7s ease both;
 						animation: scaleUp .7s ease both;
 					}
@@ -295,7 +300,7 @@ export class Constants {
 				},
 				scaleUpDown: {
 					value: 'Scale up down',
-					enter: `.scaleUpDown {
+					enter: `:host(.scaleUpDown) {
 						-webkit-animation: scaleUpDown .5s ease both;
 						animation: scaleUpDown .5s ease both;
 					}
@@ -309,7 +314,7 @@ export class Constants {
 				},
 				scaleUpCenter: {
 					value: 'Scale up center',
-					enter: `.scaleUpCenter {
+					enter: `:host(.scaleUpCenter) {
 						-webkit-animation: scaleUpCenter .4s ease-out both;
 						animation: scaleUpCenter .4s ease-out both;
 					}
@@ -343,7 +348,7 @@ export class Constants {
 				},
 				flipInLeft: {
 					value: 'Flip in left',
-					enter: `.flipInLeft {
+					enter: `:host(.flipInLeft) {
 						-webkit-transform-origin: 50% 50%;
 						transform-origin: 50% 50%;
 						-webkit-animation: flipInLeft .5s both ease-out;
@@ -359,7 +364,7 @@ export class Constants {
 				},
 				flipInRight: {
 					value: 'Flip in right',
-					enter: `.flipInRight {
+					enter: `:host(.flipInRight) {
 						-webkit-transform-origin: 50% 50%;
 						transform-origin: 50% 50%;
 						-webkit-animation: flipInRight .5s both ease-out;
@@ -375,7 +380,7 @@ export class Constants {
 				},
 				flipInTop: {
 					value: 'Flip in top',
-					enter: `.flipInTop {
+					enter: `:host(.flipInTop) {
 						-webkit-transform-origin: 50% 50%;
 						transform-origin: 50% 50%;
 						-webkit-animation: flipInTop .5s both ease-out;
@@ -391,7 +396,7 @@ export class Constants {
 				},
 				flipInBottom: {
 					value: 'Flip in bottom',
-					enter: `.flipInBottom {
+					enter: `:host(.flipInBottom) {
 						-webkit-transform-origin: 50% 50%;
 						transform-origin: 50% 50%;
 						-webkit-animation: flipInBottom .5s both ease-out;
@@ -407,7 +412,7 @@ export class Constants {
 				},
 				rotateFromCenterFall: {
 					value: 'Rotate and fall',
-					enter: `.rotateFromCenterFall {
+					enter: `:host(.rotateFromCenterFall) {
 					-webkit-animation: rotateFromCenterFall .4s ease-out both;
 						animation: rotateFromCenterFall .4s ease-out both;
 					}
@@ -421,7 +426,7 @@ export class Constants {
 				},
 				rotateInNewspaper: {
 					value: 'Rotate in newspaper',
-					enter: `.rotateInNewspaper {
+					enter: `:host(.rotateInNewspaper) {
 						-webkit-transform-origin: 50% 50%;
 						transform-origin: 50% 50%;
 						-webkit-animation: rotateInNewspaper .5s both ease-out;
@@ -437,7 +442,7 @@ export class Constants {
 				},
 				rotatePullLeft: {
 					value: 'Rotate pull left',
-					enter: `.rotatePullLeft {
+					enter: `:host(.rotatePullLeft) {
 						-webkit-transform-origin: 0% 50%;
 						transform-origin: 0% 50%;
 						-webkit-animation: rotatePullLeft .5s both ease;
@@ -453,7 +458,7 @@ export class Constants {
 				},
 				rotatePullRight: {
 					value: 'Rotate pull right',
-					enter: `.rotatePullRight {
+					enter: `:host(.rotatePullRight) {
 						-webkit-transform-origin: 100% 50%;
 						transform-origin: 100% 50%;
 						-webkit-animation: rotatePullRight .5s both ease;
@@ -469,7 +474,7 @@ export class Constants {
 				},
 				rotatePullTop: {
 					value: 'Rotate pull Top',
-					enter: `.rotatePullTop {
+					enter: `:host(.rotatePullTop) {
 						-webkit-transform-origin: 50% 0%;
 						transform-origin: 50% 0%;
 						-webkit-animation: rotatePullTop .5s both ease;
@@ -485,7 +490,7 @@ export class Constants {
 				},
 				rotatePullBottom: {
 					value: 'Rotate pull Bottom',
-					enter: `.rotatePullBottom {
+					enter: `:host(.rotatePullBottom) {
 						-webkit-transform-origin: 50% 100%;
 						transform-origin: 50% 100%;
 						-webkit-animation: rotatePullBottom .5s both ease;
@@ -565,7 +570,7 @@ export class Constants {
 				},
 				rotateRoomLeftIn: {
 					value: 'Rotate room left in',
-					enter: `.rotateRoomLeftIn {
+					enter: `:host(.rotateRoomLeftIn) {
 						-webkit-transform-origin: 0% 50%;
 						transform-origin: 0% 50%;
 						-webkit-animation: rotateRoomLeftIn .8s both ease;
@@ -581,7 +586,7 @@ export class Constants {
 				},
 				rotateRoomRightIn: {
 					value: 'Rotate room right in',
-					enter: `.rotateRoomRightIn {
+					enter: `:host(.rotateRoomRightIn) {
 						-webkit-transform-origin: 100% 50%;
 						transform-origin: 100% 50%;
 						-webkit-animation: rotateRoomRightIn .8s both ease;
@@ -597,7 +602,7 @@ export class Constants {
 				},
 				rotateRoomTopIn: {
 					value: 'Rotate room top in',
-					enter: `.rotateRoomTopIn {
+					enter: `:host(.rotateRoomTopIn) {
 						-webkit-transform-origin: 50% 0%;
 						transform-origin: 50% 0%;
 						-webkit-animation: rotateRoomTopIn .8s both ease;
@@ -613,7 +618,7 @@ export class Constants {
 				},
 				rotateRoomBottomIn: {
 					value: 'Rotate room bottom in',
-					enter: `.rotateRoomBottomIn {
+					enter: `:host(.rotateRoomBottomIn) {
 						-webkit-transform-origin: 50% 100%;
 						transform-origin: 50% 100%;
 						-webkit-animation: rotateRoomBottomIn .8s both ease;
@@ -629,7 +634,7 @@ export class Constants {
 				},
 				rotateCubeLeftIn: {
 					value: 'Rotate cube left in',
-					enter: `.rotateCubeLeftIn {
+					enter: `:host(.rotateCubeLeftIn) {
 						-webkit-transform-origin: 0% 50%;
 						transform-origin: 0% 50%;
 						-webkit-animation: rotateCubeLeftIn .6s both ease-in;
@@ -647,7 +652,7 @@ export class Constants {
 				},
 				rotateCubeRightIn: {
 					value: 'Rotate cube tight in',
-					enter: `.rotateCubeRightIn {
+					enter: `:host(.rotateCubeRightIn) {
 						-webkit-transform-origin: 100% 50%;
 						transform-origin: 100% 50%;
 						-webkit-animation: rotateCubeRightIn .6s both ease-in;
@@ -665,7 +670,7 @@ export class Constants {
 				},
 				rotateCubeTopIn: {
 					value: 'Rotate cube top in',
-					enter: `.rotateCubeTopIn {
+					enter: `:host(.rotateCubeTopIn) {
 						-webkit-transform-origin: 50% 0%;
 						transform-origin: 50% 0%;
 						-webkit-animation: rotateCubeTopIn .6s both ease-in;
@@ -683,7 +688,7 @@ export class Constants {
 				},
 				rotateCubeBottomIn: {
 					value: 'Rotate cube bottom in',
-					enter: `.rotateCubeBottomIn {
+					enter: `:host(.rotateCubeBottomIn) {
 						-webkit-transform-origin: 50% 100%;
 						transform-origin: 50% 100%;
 						-webkit-animation: rotateCubeBottomIn .6s both ease-in;
@@ -701,7 +706,7 @@ export class Constants {
 				},
 				rotateCarouselLeftIn: {
 					value: 'Rotate carousel left in',
-					enter: `.rotateCarouselLeftIn {
+					enter: `:host(.rotateCarouselLeftIn) {
 						-webkit-transform-origin: 0% 50%;
 						transform-origin: 0% 50%;
 						-webkit-animation: rotateCarouselLeftIn .8s both ease;
@@ -717,7 +722,7 @@ export class Constants {
 				},
 				rotateCarouselRightIn: {
 					value: 'Rotate carousel right in',
-					enter: `.rotateCarouselRightIn {
+					enter: `:host(.rotateCarouselRightIn) {
 						-webkit-transform-origin: 100% 50%;
 						transform-origin: 100% 50%;
 						-webkit-animation: rotateCarouselRightIn .8s both ease;
@@ -733,7 +738,7 @@ export class Constants {
 				},
 				rotateCarouselTopIn: {
 					value: 'Rotate carousel top in',
-					enter: `.rotateCarouselTopIn {
+					enter: `:host(.rotateCarouselTopIn) {
 						-webkit-transform-origin: 50% 0%;
 						transform-origin: 50% 0%;
 						-webkit-animation: rotateCarouselTopIn .8s both ease;
@@ -749,7 +754,7 @@ export class Constants {
 				},
 				rotateCarouselBottomIn: {
 					value: 'Rotate carousel bottom in',
-					enter: `.rotateCarouselBottomIn {
+					enter: `:host(.rotateCarouselBottomIn) {
 						-webkit-transform-origin: 50% 100%;
 						transform-origin: 50% 100%;
 						-webkit-animation: rotateCarouselBottomIn .8s both ease;
@@ -765,7 +770,7 @@ export class Constants {
 				},
 				rotateSidesIn: {
 					value: 'Rotate sides in',
-					enter: `.rotateSidesIn {
+					enter: `:host(.rotateSidesIn) {
 						-webkit-transform-origin: 150% 50%;
 						transform-origin: 150% 50%;
 						-webkit-animation: rotateSidesIn .5s both ease-out;
@@ -814,7 +819,7 @@ export class Constants {
 				},
 				moveToLeft: {
 					value: 'Move to left',
-					enter: `.moveToLeft {
+					enter: `:host(.moveToLeft) {
 						-webkit-animation: moveToLeft .6s ease both;
 						animation: moveToLeft .6s ease both;
 					}
@@ -830,7 +835,7 @@ export class Constants {
 				},
 				moveToRight: {
 					value: 'Move to right',
-					enter: `.moveToRight {
+					enter: `:host(.moveToRight) {
 						-webkit-animation: moveToRight .6s ease both;
 						animation: moveToRight .6s ease both;
 					}
@@ -846,7 +851,7 @@ export class Constants {
 				},
 				moveToTop: {
 					value: 'Move to top',
-					enter: `.moveToTop {
+					enter: `:host(.moveToTop) {
 						-webkit-animation: moveToTop .6s ease both;
 						animation: moveToTop .6s ease both;
 					}
@@ -862,7 +867,7 @@ export class Constants {
 				},
 				moveToBottom: {
 					value: 'Move to bottom',
-					enter: `.moveToBottom {
+					enter: `:host(.moveToBottom) {
 						-webkit-animation: moveToBottom .6s ease both;
 						animation: moveToBottom .6s ease both;
 					}
@@ -878,7 +883,7 @@ export class Constants {
 				},
 				moveToLeftFade: {
 					value: 'Move to left fade',
-					enter: `.moveToLeftFade {
+					enter: `:host(.moveToLeftFade) {
 						-webkit-animation: moveToLeftFade .7s ease both;
 						animation: moveToLeftFade .7s ease both;
 					}
@@ -894,7 +899,7 @@ export class Constants {
 				},
 				moveToRightFade: {
 					value: 'Move to right fade',
-					enter: `.moveToRightFade {
+					enter: `:host(.moveToRightFade) {
 						-webkit-animation: moveToRightFade .7s ease both;
 						animation: moveToRightFade .7s ease both;
 					}
@@ -910,7 +915,7 @@ export class Constants {
 				},
 				moveToTopFade: {
 					value: 'Move to top fade',
-					enter: `.moveToTopFade {
+					enter: `:host(.moveToTopFade) {
 						-webkit-animation: moveToTopFade .7s ease both;
 						animation: moveToTopFade .7s ease both;
 					}
@@ -926,7 +931,7 @@ export class Constants {
 				},
 				moveToBottomFade: {
 					value: 'Move to bottom fade',
-					enter: `.moveToBottomFade {
+					enter: `:host(.moveToBottomFade) {
 						-webkit-animation: moveToBottomFade .7s ease both;
 						animation: moveToBottomFade .7s ease both;
 					}
@@ -942,7 +947,7 @@ export class Constants {
 				},
 				scaleDown: {
 					value: 'Scale down',
-					enter: `.scaleDown {
+					enter: `:host(.scaleDown) {
 						-webkit-animation: scaleDown .7s ease both;
 						animation: scaleDown .7s ease both;
 					}
@@ -958,7 +963,7 @@ export class Constants {
 				},
 				scaleDownUp: {
 					value: 'Scale down up',
-					enter: `.scaleDownUp {
+					enter: `:host(.scaleDownUp) {
 						-webkit-animation: scaleDownUp .5s ease both;
 						animation: scaleDownUp .5s ease both;
 					}
@@ -974,7 +979,7 @@ export class Constants {
 				},
 				scaleDownCenter: {
 					value: 'Scale down center',
-					enter: `.scaleDownCenter {
+					enter: `:host(.scaleDownCenter) {
 						-webkit-animation: scaleDownCenter .4s ease-in both;
 						animation: scaleDownCenter .4s ease-in both;
 					}
@@ -990,7 +995,7 @@ export class Constants {
 				},
 				rotateLeftSideFirst: {
 					value: 'Rotate left side first',
-					enter: `.rotateLeftSideFirst {
+					enter: `:host(.rotateLeftSideFirst) {
 						-webkit-transform-origin: 100% 50%;
 						transform-origin: 100% 50%;
 						-webkit-animation: rotateLeftSideFirst .8s both ease-in;
@@ -1010,7 +1015,7 @@ export class Constants {
 				},
 				rotateRightSideFirst: {
 					value: 'Rotate right side first',
-					enter: `.rotateRightSideFirst {
+					enter: `:host(.rotateRightSideFirst) {
 						-webkit-transform-origin: 0% 50%;
 						transform-origin: 0% 50%;
 						-webkit-animation: rotateRightSideFirst .8s both ease-in;
@@ -1030,7 +1035,7 @@ export class Constants {
 				},
 				rotateTopSideFirst: {
 					value: 'Rotate top side first',
-					enter: `.rotateTopSideFirst {
+					enter: `:host(.rotateTopSideFirst) {
 						-webkit-transform-origin: 50% 100%;
 						transform-origin: 50% 100%;
 						-webkit-animation: rotateTopSideFirst .8s both ease-in;
@@ -1050,7 +1055,7 @@ export class Constants {
 				},
 				rotateBottomSideFirst: {
 					value: 'Rotate bottom side first',
-					enter: `.rotateBottomSideFirst {
+					enter: `:host(.rotateBottomSideFirst) {
 						-webkit-transform-origin: 50% 0%;
 						transform-origin: 50% 0%;
 						-webkit-animation: rotateBottomSideFirst .8s both ease-in;
@@ -1070,7 +1075,7 @@ export class Constants {
 				},
 				flipOutLeft: {
 					value: 'Flip out left',
-					enter: `.flipOutLeft {
+					enter: `:host(.flipOutLeft) {
 						-webkit-transform-origin: 50% 50%;
 						transform-origin: 50% 50%;
 						-webkit-animation: flipOutLeft .5s both ease-in;
@@ -1088,7 +1093,7 @@ export class Constants {
 				},
 				flipOutRight: {
 					value: 'Flip out right',
-					enter: `.flipOutRight {
+					enter: `:host(.flipOutRight) {
 						-webkit-transform-origin: 50% 50%;
 						transform-origin: 50% 50%;
 						-webkit-animation: flipOutRight .5s both ease-in;
@@ -1106,7 +1111,7 @@ export class Constants {
 				},
 				flipOutTop: {
 					value: 'Flip out Top',
-					enter: `.flipOutTop {
+					enter: `:host(.flipOutTop) {
 						-webkit-transform-origin: 50% 50%;
 						transform-origin: 50% 50%;
 						-webkit-animation: flipOutTop .5s both ease-in;
@@ -1124,7 +1129,7 @@ export class Constants {
 				},
 				flipOutBottom: {
 					value: 'Flip out Bottom',
-					enter: `.flipOutBottom {
+					enter: `:host(.flipOutBottom) {
 						-webkit-transform-origin: 50% 50%;
 						transform-origin: 50% 50%;
 						-webkit-animation: flipOutBottom .5s both ease-in;
@@ -1142,7 +1147,7 @@ export class Constants {
 				},
 				rotateFall: {
 					value: 'Rotate and fall',
-					enter: `.rotateFall {
+					enter: `:host(.rotateFall) {
 						-webkit-transform-origin: 0% 0%;
 						transform-origin: 0% 0%;
 						-webkit-animation: rotateFall 1s both ease-in;
@@ -1166,7 +1171,7 @@ export class Constants {
 				},
 				rotateOutNewspaper: {
 					value: 'Rotate in newspaper',
-					enter: `.rotateOutNewspaper {
+					enter: `:host(.rotateOutNewspaper) {
 						-webkit-transform-origin: 50% 50%;
 						transform-origin: 50% 50%;
 						-webkit-animation: rotateOutNewspaper .5s both ease-in;
@@ -1184,7 +1189,7 @@ export class Constants {
 				},
 				rotatePushLeft: {
 					value: 'Rotate push left',
-					enter: `.rotatePushLeft {
+					enter: `:host(.rotatePushLeft) {
 						-webkit-transform-origin: 0% 50%;
 						transform-origin: 0% 50%;
 						-webkit-animation: rotatePushLeft .8s both ease;
@@ -1202,7 +1207,7 @@ export class Constants {
 				},
 				rotatePushRight: {
 					value: 'Rotate push right',
-					enter: `.rotatePushRight {
+					enter: `:host(.rotatePushRight) {
 						-webkit-transform-origin: 100% 50%;
 						transform-origin: 100% 50%;
 						-webkit-animation: rotatePushRight .8s both ease;
@@ -1220,7 +1225,7 @@ export class Constants {
 				},
 				rotatePushTop: {
 					value: 'Rotate push top',
-					enter: `.rotatePushTop {
+					enter: `:host(.rotatePushTop) {
 						-webkit-transform-origin: 50% 0%;
 						transform-origin: 50% 0%;
 						-webkit-animation: rotatePushTop .8s both ease;
@@ -1238,7 +1243,7 @@ export class Constants {
 				},
 				rotatePushBottom: {
 					value: 'Rotate push bottom',
-					enter: `.rotatePushBottom {
+					enter: `:host(.rotatePushBottom) {
 						-webkit-transform-origin: 50% 100%;
 						transform-origin: 50% 100%;
 						-webkit-animation: rotatePushBottom .8s both ease;
@@ -1256,7 +1261,7 @@ export class Constants {
 				},
 				rotateFoldLeft: {
 					value: 'Rotate fold left',
-					enter: `.rotateFoldLeft {
+					enter: `:host(.rotateFoldLeft) {
 						-webkit-transform-origin: 100% 50%;
 						transform-origin: 100% 50%;
 						-webkit-animation: rotateFoldLeft .7s both ease;
@@ -1274,7 +1279,7 @@ export class Constants {
 				},
 				rotateFoldRight: {
 					value: 'Rotate fold Right',
-					enter: `.rotateFoldRight {
+					enter: `:host(.rotateFoldRight) {
 						-webkit-transform-origin: 0% 50%;
 						transform-origin: 0% 50%;
 						-webkit-animation: rotateFoldRight .7s both ease;
@@ -1292,7 +1297,7 @@ export class Constants {
 				},
 				rotateFoldTop: {
 					value: 'Rotate fold top',
-					enter: `.rotateFoldTop {
+					enter: `:host(.rotateFoldTop) {
 						-webkit-transform-origin: 50% 100%;
 						transform-origin: 50% 100%;
 						-webkit-animation: rotateFoldTop .7s both ease;
@@ -1310,7 +1315,7 @@ export class Constants {
 				},
 				rotateFoldBottom: {
 					value: 'Rotate fold bottom',
-					enter: `.rotateFoldBottom {
+					enter: `:host(.rotateFoldBottom) {
 						-webkit-transform-origin: 50% 0%;
 						transform-origin: 50% 0%;
 						-webkit-animation: rotateFoldBottom .7s both ease;
@@ -1328,7 +1333,7 @@ export class Constants {
 				},
 				rotateRoomLeftOut: {
 					value: 'Rotate room left out',
-					enter: `.rotateRoomLeftOut {
+					enter: `:host(.rotateRoomLeftOut) {
 						-webkit-transform-origin: 100% 50%;
 						transform-origin: 100% 50%;
 						-webkit-animation: rotateRoomLeftOut .8s both ease;
@@ -1346,7 +1351,7 @@ export class Constants {
 				},
 				rotateRoomRightOut: {
 					value: 'Rotate room right out',
-					enter: `.rotateRoomRightOut {
+					enter: `:host(.rotateRoomRightOut) {
 						-webkit-transform-origin: 0% 50%;
 						transform-origin: 0% 50%;
 						-webkit-animation: rotateRoomRightOut .8s both ease;
@@ -1364,7 +1369,7 @@ export class Constants {
 				},
 				rotateRoomTopOut: {
 					value: 'Rotate room top out',
-					enter: `.rotateRoomTopOut {
+					enter: `:host(.rotateRoomTopOut) {
 						-webkit-transform-origin: 50% 100%;
 						transform-origin: 50% 100%;
 						-webkit-animation: rotateRoomTopOut .8s both ease;
@@ -1382,7 +1387,7 @@ export class Constants {
 				},
 				rotateRoomBottomOut: {
 					value: 'Rotate room bottom out',
-					enter: `.rotateRoomBottomOut {
+					enter: `:host(.rotateRoomBottomOut) {
 						-webkit-transform-origin: 50% 0%;
 						transform-origin: 50% 0%;
 						-webkit-animation: rotateRoomBottomOut .8s both ease;
@@ -1400,7 +1405,7 @@ export class Constants {
 				},
 				rotateCubeLeftOut: {
 					value: 'Rotate cube left out',
-					enter: `.rotateCubeLeftOut {
+					enter: `:host(.rotateCubeLeftOut) {
 						-webkit-transform-origin: 100% 50%;
 						transform-origin: 100% 50%;
 						-webkit-animation: rotateCubeLeftOut .6s both ease-in;
@@ -1420,7 +1425,7 @@ export class Constants {
 				},
 				rotateCubeRightOut: {
 					value: 'Rotate cube right out',
-					enter: `.rotateCubeRightOut {
+					enter: `:host(.rotateCubeRightOut) {
 						-webkit-transform-origin: 0% 50%;
 						transform-origin: 0% 50%;
 						-webkit-animation: rotateCubeRightOut .6s both ease-in;
@@ -1440,7 +1445,7 @@ export class Constants {
 				},
 				rotateCubeTopOut: {
 					value: 'Rotate cube top out',
-					enter: `.rotateCubeTopOut {
+					enter: `:host(.rotateCubeTopOut) {
 						-webkit-transform-origin: 50% 100%;
 						transform-origin: 50% 100%;
 						-webkit-animation: rotateCubeTopOut .6s both ease-in;
@@ -1460,7 +1465,7 @@ export class Constants {
 				},
 				rotateCubeBottomOut: {
 					value: 'Rotate cube bottom out',
-					enter: `.rotateCubeBottomOut {
+					enter: `:host(.rotateCubeBottomOut) {
 						-webkit-transform-origin: 50% 0%;
 						transform-origin: 50% 0%;
 						-webkit-animation: rotateCubeBottomOut .6s both ease-in;
@@ -1480,7 +1485,7 @@ export class Constants {
 				},
 				rotateCarouselLeftOut: {
 					value: 'Rotate carousel left out',
-					enter: `.rotateCarouselLeftOut {
+					enter: `:host(.rotateCarouselLeftOut) {
 						-webkit-transform-origin: 100% 50%;
 						transform-origin: 100% 50%;
 						-webkit-animation: rotateCarouselLeftOut .8s both ease;
@@ -1498,7 +1503,7 @@ export class Constants {
 				},
 				rotateCarouselRightOut: {
 					value: 'Rotate carousel right out',
-					enter: `.rotateCarouselRightOut {
+					enter: `:host(.rotateCarouselRightOut) {
 						-webkit-transform-origin: 100% 50%;
 						transform-origin: 100% 50%;
 						-webkit-animation: rotateCarouselRightOut .8s both ease;
@@ -1516,7 +1521,7 @@ export class Constants {
 				},
 				rotateCarouselTopOut: {
 					value: 'Rotate carousel top out',
-					enter: `.rotateCarouselTopOut {
+					enter: `:host(.rotateCarouselTopOut) {
 						-webkit-transform-origin: 50% 100%;
 						transform-origin: 50% 100%;
 						-webkit-animation: rotateCarouselTopOut .8s both ease;
@@ -1534,7 +1539,7 @@ export class Constants {
 				},
 				rotateCarouselBottomOut: {
 					value: 'Rotate carousel bottom out',
-					enter: `.rotateCarouselBottomOut {
+					enter: `:host(.rotateCarouselBottomOut) {
 						-webkit-transform-origin: 50% 0%;
 						transform-origin: 50% 0%;
 						-webkit-animation: rotateCarouselBottomOut .8s both ease;
@@ -1552,7 +1557,7 @@ export class Constants {
 				},
 				rotateSidesOut: {
 					value: 'Rotate sides out',
-					enter: `.rotateSidesOut {
+					enter: `:host(.rotateSidesOut) {
 						-webkit-transform-origin: -50% 50%;
 						transform-origin: -50% 50%;
 						-webkit-animation: rotateSidesOut .5s both ease-in;

@@ -20,7 +20,7 @@ body {
 
 .v-center {
 	display: flex;
-	flex-direction: column;
+	flex-direction: column !important;
 	align-items: center;
 	justify-content: center;
 }
@@ -29,6 +29,8 @@ body {
 	display: flex;
 	justify-content: center;
 }
+
+.v-pad { padding-top: 30px; }
 
 .hidden { display: none !important; }
 
@@ -56,6 +58,8 @@ body {
 
 .height-screen { height: 100vh !important; }
 
+.height-inherit { height: inherit; }
+
 .separator { border-bottom: solid #f95959 24px; }
 
 .bg-primary { background-color: #233142; }
@@ -64,3 +68,9 @@ body {
 .bg-fourly { background-color: #facf5a; }
 
 .bg-white { background-color: #fff; }
+
+@media only screen and (max-width: 765px) { 
+	aside { 
+		height: 60px !important;
+	} 
+}

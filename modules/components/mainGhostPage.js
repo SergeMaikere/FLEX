@@ -17,32 +17,33 @@ export class MainGhostPage extends Page {
 	}
 
 	setNewPage () {
-		return `<section id="inner-${this._id}" class="inner card height-screen">
+		return `<section id="inner-${this._id}" class="inner card">
+			
 			<div class="card-title text-center">
 				<h1>${this._title}</h1>
 			</div>
-			<div class="card-body">
-				<div class="row">
-					<div class="col-sm-8">
-						<form>
-							<div class="form-group">
-								<label for="numberOfPages">Number of Pages</label>
-								<input type="number" class="form-control" id="numberOfPages" aria-describedby="numberPageHelp" placeholder="1">
-								<small id="numberPageHelp" class="form-text text-muted">Choose the number of pages.</small>
-							</div>
-							<div id="allMyPages"></div>
-							<button id="submitPages" type="button" class="btn btn-dark">Submit</button>
-						</form>
-					</div>
-					<div class="col-sm-4">
-						${this.constants.text}
-					</div>
+			
+			<div class="row card-body">
+				<div class="col-md-8 v-pad">
+					<form>
+						<div class="form-group">
+							<label for="numberOfPages">Number of Pages</label>
+							<input type="number" class="form-control" id="numberOfPages" aria-describedby="numberPageHelp" placeholder="1">
+							<small id="numberPageHelp" class="form-text text-muted">Choose the number of pages.</small>
+						</div>
+						<div id="allMyPages"></div>
+						<button id="submitPages" type="button" class="btn btn-dark">Submit</button>
+					</form>
 				</div>
-			</div>
+				<div class="col-md-4 v-pad">
+					${this.constants.text}
+				</div>
+			</div>	
+			
 		</section>
 
 		<section class="row">
-			<div id="ghostPages" class="col-sm-11 height-auto transition-container">
+			<div id="ghostPages" class="col-sm-11 transition-container">
 			</div>
 			<div id="nav-container" class="col-sm-1">
 			</div>
@@ -126,6 +127,7 @@ export class MainGhostPage extends Page {
 	setPage (obj) {
 		let page = document.createElement('s-ghostpage');
 		page.id = 'new-' + obj.id;
+		this.markFirstPage(page)
 		page.setAttribute('transition', obj.transition);
 		page.setAttribute('title', obj.title);
 
@@ -148,5 +150,7 @@ export class MainGhostPage extends Page {
 		if (this.helper.hasClass(pagesContainer, 'height-screen')) this.helper.removeClass(pagesContainer, ['height-screen']);
 		this.helper.emptyContainers([pagesContainer])
 	} 
+
+	markFirstPage (page) { if (page.id == 'new-page-1') this.helper.addClass(page, ['vedette']) }
 }
 
