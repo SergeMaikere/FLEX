@@ -506,7 +506,7 @@ export class Constants {
 				},
 				rotateUnfoldLeft: {
 					value: 'Rotate unfold left',
-					enter:`.rotateUnfoldLeft {
+					enter:`:host(.rotateUnfoldLeft) {
 						-webkit-transform-origin: 100% 50%;
 						transform-origin: 100% 50%;
 						-webkit-animation: rotateUnfoldLeft .7s both ease;
@@ -522,7 +522,7 @@ export class Constants {
 				},
 				rotateUnfoldRight: {
 					value: 'Rotate unfold right',
-					enter:`.rotateUnfoldRight {
+					enter:`:host(.rotateUnfoldRight) {
 						-webkit-transform-origin: 0% 50%;
 						transform-origin: 0% 50%;
 						-webkit-animation: rotateUnfoldRight .7s both ease;
@@ -534,11 +534,11 @@ export class Constants {
 					@keyframes rotateUnfoldRight {
 						from { opacity: 0; -webkit-transform: translateX(100%) rotateY(90deg); transform: translateX(100%) rotateY(90deg); }
 					}`,
-					exitName: 'rotateFoldleft'
+					exitName: 'rotateFoldLeft'
 				},
 				rotateUnfoldTop: {
 					value: 'Rotate unfold top',
-					enter:`.rotateUnfoldTop {
+					enter:`:host(.rotateUnfoldTop) {
 						-webkit-transform-origin: 50% 100%;
 						transform-origin: 50% 100%;
 						-webkit-animation: rotateUnfoldTop .7s both ease;
@@ -554,7 +554,7 @@ export class Constants {
 				},
 				rotateUnfoldBottom: {
 					value: 'Rotate unfold bottom',
-					enter:`.rotateUnfoldBottom {
+					enter:`:host(.rotateUnfoldBottom) {
 						-webkit-transform-origin: 50% 0%;
 						transform-origin: 50% 0%;
 						-webkit-animation: rotateUnfoldBottom .7s both ease;
@@ -1599,7 +1599,12 @@ export class Constants {
 
 	get transitions () { return this._transitions }
 
-	set transitions (newValue) { this._transitions = newValue }
+	set transitions (newValue) { 
+		Object.keys(newValue.from).forEach( 
+			transition => newValue.from[transition].interval = this.setAnimationInterval(transition) 
+		)
+		this._transitions = newValue;
+	}
 
 	get cssColors () { return this._cssColors[ Math.floor( Math.random() * this._cssColors.length ) ] }
 
@@ -1610,6 +1615,7 @@ export class Constants {
 		return this.setTranslation(transitionData.enter, '120') + this.setTranslation(this.transitions.to[ transitionData.exitName ].enter, '120');
 	}
 
+	// Adjust de % of the translation
 	setTranslation (str, value) {
 		return str.replace(/translateX\(100/g, `translateX(${value}`)
 		.replace(/translateX\(\-100/g, `translateX(-${value}`);
@@ -1626,5 +1632,10 @@ export class Constants {
 		@keyframes ${className} {
 			from { opacity: 0; -webkit-transform: scale(.7); transform: scale(.7); }
 		}`;
+	}
+
+	setAnimationInterval (transition) {
+		//if ( transition.includes('Unfold')) return 600;
+		return 0;
 	}
 }

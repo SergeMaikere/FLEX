@@ -69,7 +69,7 @@ export class GhostNav extends Navbar {
 
 						const transition = e.target.getAttribute('transition');
 						this.removeCurrentPage();
-						this.insertNewSelectedPage(transition, pageId, 0)
+						this.insertNewSelectedPage(transition, pageId);
 					}
 				)
 			}
@@ -83,15 +83,15 @@ export class GhostNav extends Navbar {
 		this.helper.addClass(currentPage, [this.constants.transitions.from[transition].exitName])
 	}
 
-	insertNewSelectedPage (transition, id, timeout) {
-
+	insertNewSelectedPage (transition, id) {
+		const interval = this.constants.transitions.from[transition].interval;
 		setTimeout(
 			() => {
 				let newPage = document.getElementById('mainGhostPage').shadowRoot.getElementById(id);
-				this.helper.removeClass(newPage, [this.constants.transitions.from[transition].exitName])
-				this.helper.addClass(newPage, ['vedette', transition])
+				this.helper.removeClass(newPage, [this.constants.transitions.from[transition].exitName]);
+				this.helper.addClass(newPage, ['vedette', transition]);
 			},
-			timeout
+			interval
 		)
 	}
 }

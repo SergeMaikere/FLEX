@@ -100,7 +100,7 @@ export class Navbar extends Page {
 
 						const transition = this.getPageTransition(pageId);
 						this.removeCurrentPage();
-						this.insertNewSelectedPage(transition, pageId, 0)
+						this.insertNewSelectedPage(transition, pageId)
 					}
 				)
 			}
@@ -116,15 +116,15 @@ export class Navbar extends Page {
 		this.helper.addClass(currentPage, [this.constants.transitions.from[transition].exitName])
 	}
 
-	insertNewSelectedPage (transition, id, timeout) {
-
+	insertNewSelectedPage (transition, id) {
+		const interval = this.constants.transitions.from[transition].interval;
 		setTimeout(
 			() => {
 				let newPage = document.getElementById(id);
 				this.helper.removeClass(newPage, [this.constants.transitions.from[transition].exitName])
 				this.helper.addClass(newPage, ['star', transition])
 			},
-			timeout
+			interval
 		)
 	}
 }
