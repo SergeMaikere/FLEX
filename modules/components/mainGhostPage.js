@@ -12,7 +12,7 @@ export class MainGhostPage extends Page {
 			this.onMiniFormsSubmit.bind(this)
 		];
 
-		this.classes = [ 'transition-ready', 'height-screen', this.constants.transitions.from[this.transition].exitName ];
+		this.classes = [ 'scroll', 'transition-ready', 'height-screen', this.constants.transitions.from[this.transition].exitName ];
 
 	}
 
@@ -48,6 +48,8 @@ export class MainGhostPage extends Page {
 			<div id="nav-container" class="col-sm-1">
 			</div>
 		</section>
+
+		<section id="display-animation" class="row"></section>
 		<style>
 			${this.constants.getCssTransition(this.transition)}
 		</style>`;
@@ -67,8 +69,9 @@ export class MainGhostPage extends Page {
 		let miniFormContainer = this.shadowRoot.getElementById('allMyPages');
 		let navContainer = this.shadowRoot.getElementById('nav-container');
 		let pagesContainer = this.shadowRoot.getElementById('ghostPages');
+		let transitionsContainer = this.shadowRoot.getElementById('display-animation');
 
-		this.helper.emptyContainers([miniFormContainer, navContainer]);
+		this.helper.emptyContainers([miniFormContainer, navContainer, transitionsContainer]);
 		this.hidePagesContainer(pagesContainer);
 
 		while (num != 0 && count < num) { 

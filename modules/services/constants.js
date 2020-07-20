@@ -5,7 +5,7 @@ export class Constants {
 		}
 
 		this.cssLinks = `<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 		<link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="../../css/index.css">`;
 
@@ -1622,7 +1622,7 @@ export class Constants {
 	}
 
 	setDefaultEntrance (className) {
-		return `.${className} {
+		return `:host(.${className}) {
 		-webkit-animation: ${className} .4s ease-out both;
 			animation: ${className} .4s ease-out both;
 		}

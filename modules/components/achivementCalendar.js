@@ -242,7 +242,12 @@ export class AchivementCalendar extends Page {
 
 				localStorage.starDates = JSON.stringify(target);
 				return true;
+			},
+
+			get: (target, property) => {
+				return target[property];
 			}
+
 		}
 	}
 
@@ -287,3 +292,4 @@ export class AchivementCalendar extends Page {
 		return {month: newMonth, year: year};
 	}
 }
+

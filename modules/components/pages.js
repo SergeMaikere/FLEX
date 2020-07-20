@@ -16,6 +16,8 @@ export class Page extends HTMLElement {
 
 		this.transition = transition;
 
+		this.transitionObj = this.transition;
+
 		this._id = id;
 
 		this.events = [];
@@ -34,6 +36,9 @@ export class Page extends HTMLElement {
 
 	get transition () { return this._transition; }
 	set transition (newValue) { this._transition = this.getAttribute('transition') || newValue; }
+
+	get transitionObj () { return this._transitionObj; }
+	set transitionObj (newValue) { this._transitionObj = this.constants.transitions.from[newValue]; }
 
 	get _id () { return this.__id; }
 	set _id (newValue) { this.__id = this.getAttribute('id') || newValue; }
@@ -65,17 +70,23 @@ export class Page extends HTMLElement {
 
 	setEventsListeners () {
 		if (this.events.length == 0) return;
-		this.events.forEach( event => event() )
+		this.events.forEach( event => event() );
 	}
 
 	setClassAndAttributes () {
+		// This is where the default id is set
 		this.helper.addAttribute(this, this.attributes);
+
+		// This is where the transition is set
 		this.helper.addClass(this, this.classes);
 	}
 
-	transitionManager (oldValue, newValue) { this.transition = newValue; }
 	titleManager (oldValue, newValue) { this._title = newValue; }
 	idManager (oldValue, newValue) { this._id = newValue; }
+	transitionManager (oldValue, newValue) { 
+		this.transition = newValue; 
+		this.transitionObj = newValue;
+	}
 }
 
 

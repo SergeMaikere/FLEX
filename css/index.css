@@ -2,7 +2,6 @@
 	border-radius: 0 !important; 
 	font-family: 'Rajdhani', sans-serif;
 	overflow: visible;
-	scroll-behavior: smooth;
 }
 
 body {
@@ -61,6 +60,15 @@ body {
 .height-inherit { height: inherit; }
 
 .separator { border-bottom: solid #f95959 24px; }
+
+.scroll { scroll-behavior: smooth !important; }
+
+.primary { color: #233142; }
+.secondary { color: #455d7a; }
+.thertiarily { color: #f95959; }
+.fourly { color: #facf5a; }
+
+.white { color: #fff; }
 
 .bg-primary { background-color: #233142; }
 .bg-secondary { background-color: #455d7a; }

@@ -4,7 +4,7 @@ export class GhostNav extends Navbar {
 	constructor () {
 		super('ghostNavbar');
 
-		this.events = [ this.onNavLinkSelected.bind(this) ]
+		this.events = [ this.onNavLinkSelected.bind(this), this.onDisplayAnimationClicked.bind(this) ]
 
 	}
 
@@ -16,8 +16,14 @@ export class GhostNav extends Navbar {
 		this._links =  arrObj.reduce(
 			(acc, obj) => {
 				return acc += 
-				`<a id="link-${obj.id}" class="navbar-brand homemade-icon" href="#ghostPages">
-			    	<span class="badge bg-secondary" page="${obj.id}" transition="${obj.transition}">${this.setHomemadeIcon(obj.title)}</span>
+				`<a id="link-${obj.id}" class="homemade-icon" href="#ghostPages">
+			    	<span 
+			    		class="badge bg-secondary white" 
+			    		page="${obj.id}" 
+			    		transition="${obj.transition}" 
+			    		data-toggle="tooltip" 
+			    		data-placement="right" 
+			    		title="${obj.title}">${this.setHomemadeIcon(obj.title)}</span>
 				</a>`;
 			}, ''
 		)
@@ -32,6 +38,9 @@ export class GhostNav extends Navbar {
 			<div id="inner-${this._id}">
 				<nav class="navbar navbar-light bg-fourly v-center height-screen">
 					${this.links}
+					<a id="save-transitions" href="#save-animation">
+				    	<span class="fa fa-paw thertiarily" aria-hidden="true" data-toggle="tooltip" data-placement="left" title="Get the animations"></span>
+					</a>
 				</nav>
 			</div>
 		</aside>
@@ -51,9 +60,14 @@ export class GhostNav extends Navbar {
 			}
 
 			.navbar-brand:hover span {
-			  -webkit-transform: scale(1.4);
-			  transform: scale(1.4);
+			  -webkit-transform: rotate(-15deg) scale(1.4);
+			  transform: rotate(-15deg) scale(1.4);
 			}	
+			
+			.homemade-icon { padding: 10px; }
+
+			#save-transitions { font-size: 1.5em; }
+
 		</style>`;
 	}
 
@@ -92,6 +106,27 @@ export class GhostNav extends Navbar {
 				this.helper.addClass(newPage, ['vedette', transition]);
 			},
 			interval
+		)
+	}
+
+	onDisplayAnimationClicked () {
+		this.shadowRoot.getElementById('save-transitions').addEventListener(
+			'click',
+			(e) => {
+				let container = document.getElementById('mainGhostPage').shadowRoot.getElementById('display-animation');
+				
+				if (!this.helper.isContainerEmpty(container)) this.helper.emptyContainers([container])
+
+				Array.from(this.shadowRoot.querySelectorAll('.homemade-icon span')).forEach(
+					link => {
+						let animation = document.createElement('s-animation');
+						animation.setAttribute('transition', link.getAttribute('transition'));
+						animation.setAttribute('title', link.getAttribute('title'));
+						animation.id = 'anim-' + link.getAttribute('page');
+						document.querySelector('s-mainghostpage').shadowRoot.getElementById('display-animation').append(animation);
+					}
+				)
+			}
 		)
 	}
 }
